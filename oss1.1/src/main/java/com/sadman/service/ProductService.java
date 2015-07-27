@@ -2,8 +2,10 @@ package com.sadman.service;
 
 import com.sadman.database.DataRetrieve;
 import com.sadman.database.DatabaseConnection;
+import com.sadman.dto.CategoryDto;
 import com.sadman.dto.ProductDto;
 import com.sadman.dto.StoreDto;
+import com.sadman.dto.SubCategoryDto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +23,7 @@ public class ProductService {
     private List<ProductDto> productList;
     private String query;
 
-    public ProductService() throws SQLException{
+    public ProductService() throws SQLException {
         databaseConnection = DatabaseConnection.createConnection();
         dataRetrieve = new DataRetrieve(databaseConnection);
     }
@@ -30,9 +32,9 @@ public class ProductService {
         query = "select * from product order by product_ratings desc limit 6";
         resultSet = dataRetrieve.getResultset(query);
 
-        if(resultSet != null) {
+        if (resultSet != null) {
             return fillTheList();
-        }else{
+        }else {
             return null;
         }
     }
@@ -41,7 +43,7 @@ public class ProductService {
         query = "select * from product order by product_sale desc limit 6";
         resultSet = dataRetrieve.getResultset(query);
 
-        if(resultSet != null) {
+        if (resultSet != null) {
             return fillTheList();
         }else{
             return null;
@@ -52,7 +54,7 @@ public class ProductService {
         query = "select * from product order by product_view desc limit 6";
         resultSet = dataRetrieve.getResultset(query);
 
-        if(resultSet != null) {
+        if (resultSet != null) {
             return fillTheList();
         }else{
             return null;
@@ -60,14 +62,31 @@ public class ProductService {
     }
 
     public List<ProductDto> getProductByCategory(String type) throws SQLException {
-        query = "select * from category where categoryName = " + type;
-        resultSet = dataRetrieve.getResultset(query);
+        CategoryService categoryService = new CategoryService();
+        CategoryDto categoryDto = categoryService.getCategoryByName(type);
+
+        if (categoryDto != null) {
+            query = "select * from product order by product_uploadDate desc where product_categoryId = " + categoryDto.getId();
+            resultSet = dataRetrieve.getResultset(query);
+        }else {
+            SubCategoryService subCategoryService = new SubCategoryService();
+            SubCategoryDto subCategoryDto = subCategoryService.getSubCategoryByName(type);
+
+            query = "select * from product order by product_uploadDate desc where product_subCategoryId = " + subCategoryDto.getId();
+            resultSet = dataRetrieve.getResultset(query);
+        }
+
+        if (resultSet != null) {
+            return fillTheList();
+        }else {
+            return null;
+        }
     }
 
     private ProductDto fillTheObject() throws SQLException {
         ProductDto product = new ProductDto();
 
-        while(resultSet.next()) {
+        while (resultSet.next()) {
             product.setId(resultSet.getInt("product_id"));
             product.setCategoryId(resultSet.getInt("product_categoryId"));
             product.setSubCategoryId(resultSet.getInt("product_subCategoryId"));
@@ -119,7 +138,7 @@ public class ProductService {
             productList.add(product);
         }
 
-        for(ProductDto singleProduct : productList){
+        for (ProductDto singleProduct : productList) {
             StoreDto store_details = getStore(singleProduct.getStoreId());
             singleProduct.setStoreName(store_details.getName());
             singleProduct.setStoreRatings(store_details.getRatings());

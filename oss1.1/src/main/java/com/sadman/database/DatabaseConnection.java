@@ -9,7 +9,7 @@ public class DatabaseConnection {
 
     private Connection connection;
     private Statement statement;
-    private static DatabaseConnection databaseconnection = null;
+    private static DatabaseConnection databaseConnection = null;
 
     private DatabaseConnection() {
         try {
@@ -22,12 +22,12 @@ public class DatabaseConnection {
     }
 
     public static DatabaseConnection createConnection(){
-        if(databaseconnection == null) {
-            databaseconnection = new DatabaseConnection();
-            return databaseconnection;
+        if(databaseConnection == null) {
+            databaseConnection = new DatabaseConnection();
+            return databaseConnection;
         }
         else {
-            return databaseconnection;
+            return databaseConnection;
         }
     }
 

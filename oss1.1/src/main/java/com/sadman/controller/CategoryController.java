@@ -19,7 +19,7 @@ public class CategoryController extends HttpServlet {
             categoryType = request.getParameter("type");
 
             ProductService productService = new ProductService();
-            productService.getProductByCategory(type);
+            productService.getProductByCategory(categoryType);
         }catch (Exception e){}
     }
 
