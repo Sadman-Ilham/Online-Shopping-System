@@ -3,14 +3,13 @@ package com.sadman.service;
 import com.sadman.database.DataRetrieve;
 import com.sadman.database.DatabaseConnection;
 import com.sadman.dto.CategoryDto;
-import com.sadman.dto.ProductDto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Created by BS15 on 7/27/2015.
+ * Created by Sadman on 7/27/2015.
  */
 public class CategoryService {
 
@@ -23,6 +22,17 @@ public class CategoryService {
     public CategoryService() throws SQLException {
         databaseConnection = DatabaseConnection.createConnection();
         dataRetrieve = new DataRetrieve(databaseConnection);
+    }
+
+    public CategoryDto getCategoryById(int id) throws SQLException {
+        query = "select * from category where category_id = " + id;
+        resultSet = dataRetrieve.getResultset(query);
+
+        if(resultSet != null) {
+            return fillTheObject();
+        }else {
+            return null;
+        }
     }
 
     public CategoryDto getCategoryByName(String type) throws SQLException {

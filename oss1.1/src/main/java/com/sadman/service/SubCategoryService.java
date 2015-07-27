@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Created by BS15 on 7/27/2015.
+ * Created by Sadman on 7/27/2015.
  */
 public class SubCategoryService {
 

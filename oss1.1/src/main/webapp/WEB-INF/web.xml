@@ -28,4 +28,13 @@
         <url-pattern>/category</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>item</servlet-name>
+        <servlet-class>com.sadman.controller.ItemController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>item</servlet-name>
+        <url-pattern>/item</url-pattern>
+    </servlet-mapping>
+
 </web-app>

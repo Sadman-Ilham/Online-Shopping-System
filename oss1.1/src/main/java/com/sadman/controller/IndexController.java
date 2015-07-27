@@ -18,7 +18,7 @@ public class IndexController extends HttpServlet{
 
     private List<ProductDto> productsByRatings, productsBySale, productsByView;
 
-    public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             ProductService productService = new ProductService();
             productsByRatings = productService.getProductByRatings();

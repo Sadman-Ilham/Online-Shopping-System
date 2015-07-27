@@ -1,7 +1,7 @@
 package com.sadman.dto;
 
 /**
- * Created by BS15 on 7/27/2015.
+ * Created by Sadman on 7/27/2015.
  */
 public class SubCategoryDto {
 

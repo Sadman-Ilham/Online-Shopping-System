@@ -28,6 +28,28 @@ public class ProductService {
         dataRetrieve = new DataRetrieve(databaseConnection);
     }
 
+    public ProductDto getProductById(int pid) throws SQLException {
+        query = "select * from product where product_id = " + pid;
+        resultSet = dataRetrieve.getResultset(query);
+
+        if(resultSet != null) {
+            return fillTheObject();
+        }else {
+            return null;
+        }
+    }
+
+    public List<ProductDto> getProductByStore(int sid) throws SQLException {
+        query = "select * from product order by product_uploadDateTime desc where product_storeId = " + sid;
+        resultSet = dataRetrieve.getResultset(query);
+
+        if(resultSet != null) {
+            return fillTheList();
+        }else {
+            return null;
+        }
+    }
+
     public List<ProductDto> getProductByRatings() throws SQLException {
         query = "select * from product order by product_ratings desc limit 6";
         resultSet = dataRetrieve.getResultset(query);
@@ -66,7 +88,7 @@ public class ProductService {
         CategoryDto categoryDto = categoryService.getCategoryByName(type);
 
         if (categoryDto != null) {
-            query = "select * from product order by product_uploadDate desc where product_categoryId = " + categoryDto.getId();
+            query = "select * from product order by product_uploadDateTime desc where product_categoryId = " + categoryDto.getId();
             resultSet = dataRetrieve.getResultset(query);
         }else {
             SubCategoryService subCategoryService = new SubCategoryService();
