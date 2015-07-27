@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Font Awesome 4.3.0  -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+        <!-- Modified CSS -->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!-- Half-slider CSS -->
+        <link rel="stylesheet" type="text/css" href="css/half-slider.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.raty.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-trans navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-collapsible">
+                    <ul class="nav navbar-nav navbar-right shop-menu">
+                        <li> <a href="#"><i class="fa fa-heart-o fa-2x"></i><span class="icon-text"> Wishlist </span>
+                            <span class="badge">0</span></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i> <span class="icon-text">Cart</span> <span class="badge">0</span></a></li>
+                        <li><a data-toggle="modal" href='#modal-id'><i class="fa fa-user fa-2x"></i><span class="icon-text"> LogIn/SignUp</span></a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group" style="display:inline;">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Category 1</a></li>
+                                        <li><a href="#">Category 2</a></li>
+                                        <li><a href="#">Category 3</a></li>
+                                        <li><a href="#">Category 4</a></li>
+                                        <li><a href="#">Category 5</a></li>
+                                    </ul>
+                                </div>
+                                <input type="text" class="form-control" placeholder="What are searching for?">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Start of modal window -->
+        <div class="modal fade" id="modal-id">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="text-center">Login or <a href="#">Sign up</a></h3>
+                        <div class="row">
+                            <div class="col-xs-4" >
+                                <a href="#" class="btn btn-lg btn-block btn-facebook">Facebook</a>
+                            </div>
+                            <div class="col-xs-4 ">
+                                <a href="#" class="btn btn-lg btn-block btn-twitter">Twitter</a>
+                            </div>
+                            <div class="col-xs-4 ">
+                                <a href="#" class="btn btn-lg btn-block btn-google">Google+</a>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <hr class="hrStyle">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <form action="" class="form-horizontal" method="POST" role="form">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <span class="help-block"></span>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
+                                    </div>
+                                    <span class="help-block"></span>
+                                    <a href="#" class="btn btn-success btn-block btn-lg">Login</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-xs-6 text-left">
+                                <label><input type="checkbox" value="rememberMe"> Remember Me</label>
+                            </div>
+                            <div class="col-xs-6 text-right ">
+                                <p><a href="#">Forgot Password?</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Half Page Image Background Carousel Header -->
+        <div id="myCarousel" class="carousel slide">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for Slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <!-- Set the first background image using inline CSS below. -->
+                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+                    <div class="carousel-caption">
+                        <h2>Caption 1</h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- Set the second background image using inline CSS below. -->
+                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
+                    <div class="carousel-caption">
+                        <h2>Caption 2</h2>
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- Set the third background image using inline CSS below. -->
+                    <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
+                    <div class="carousel-caption">
+                        <h2>Caption 3</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+            </a>
+        </div>
+        <!-- Product On Sale -->
+        <section id="product-on-sale" class="product-content">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <h4>
+                        <a href="#">
+                        <i>PRODUCT'S ON SALE</i>
+                        </a>
+                        </h4>
+                    </div>
+                    <div class="col-lg-offset-2 col-lg-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">
+                        <h4>
+                        <a href="#"><i>View more</i></a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-4 col-xs-4 logo">
+                        <img src="images/home/url.jpg" alt="" />
+                    </div>
+                    <div class="col-sm-8 col-xs-8">
+                        <div class="row">
+                            <div class="container-fluid">
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/girl4.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <del>US $5.50</del>
+                                </div>
+                                </a>
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/girl4.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <del>US $5.50</del>
+                                </div>
+                                </a>
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/url.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <del>US $5.50</del>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container-fluid">
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/girl4.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <del>US $5.50</del>
+                                </div>
+                                </a>
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/girl4.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <del>US $5.50</del>
+                                </div>
+                                </a>
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/girl4.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <del>US $5.50</del>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Start of top rated-->
+        <section id="top-rated" class="product-content">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <h4>
+                        <a href="#">
+                        <i>TOP RATED</i>
+                        </a>
+                        </h4>
+                    </div>
+                    <div class="col-lg-offset-2 col-lg-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">
+                        <h4>
+                        <a href="#"><i>View more</i></a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-4 col-xs-4 logo">
+                        <img  src="images/home/girl1.jpg" alt="" />
+                    </div>
+                    <div class="col-sm-8 col-xs-8">
+                        <div class="row">
+                            <div class="container-fluid">
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/product1.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <div class="rating-box">
+                                        <div class="rating readonly-rating" data-score="3"></div>
+                                        <span>3 Review(s)</span>
+                                    </div>
+                                </div>
+                                </a>
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/product2.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <div class="rating-box">
+                                        <div class="rating readonly-rating" data-score="3"></div>
+                                        <span>3 Review(s)</span>
+                                    </div>
+                                </div>
+                                </a>
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/product3.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <div class="rating-box">
+                                        <div class="rating readonly-rating" data-score="3"></div>
+                                        <span>3 Review(s)</span>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="container-fluid">
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/product3.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <div class="rating-box">
+                                        <div class="rating readonly-rating" data-score="3"></div>
+                                        <span>3 Review(s)</span>
+                                    </div>
+                                </div>
+                                </a>
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/product8.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <div class="rating-box">
+                                        <div class="rating readonly-rating" data-score="3"></div>
+                                        <span>3 Review(s)</span>
+                                    </div>
+                                </div>
+                                </a>
+                                <a href="#">
+                                <div class="col-sm-4 col-xs-4 product-info text-center">
+                                    <img class="product-image" src="images/home/product9.jpg" alt="" />
+                                    <span>US $4.50</span>
+                                    <div class="rating-box">
+                                        <div class="rating readonly-rating" data-score="3"></div>
+                                        <span>3 Review(s)</span>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Best Seller -->
+        <!-- Start of footer -->
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="companyinfo">
+                                <h2><span>e</span>-shopper</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="images/home/iframe1.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="images/home/iframe2.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="images/home/iframe3.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="images/home/iframe4.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <div class="address">
+                                <img src="images/home/map.png" alt="" />
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-widget">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="single-widget">
+                                <h2>Service</h2>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">Online Help</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Order Status</a></li>
+                                    <li><a href="#">Change Location</a></li>
+                                    <li><a href="#">FAQ’s</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="single-widget">
+                                <h2>Quock Shop</h2>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">T-Shirt</a></li>
+                                    <li><a href="#">Mens</a></li>
+                                    <li><a href="#">Womens</a></li>
+                                    <li><a href="#">Gift Cards</a></li>
+                                    <li><a href="#">Shoes</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="single-widget">
+                                <h2>Policies</h2>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">Terms of Use</a></li>
+                                    <li><a href="#">Privecy Policy</a></li>
+                                    <li><a href="#">Refund Policy</a></li>
+                                    <li><a href="#">Billing System</a></li>
+                                    <li><a href="#">Ticket System</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="single-widget">
+                                <h2>About Shopper</h2>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">Company Information</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Store Location</a></li>
+                                    <li><a href="#">Affillate Program</a></li>
+                                    <li><a href="#">Copyright</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-sm-offset-1 col-xs-offset-1">
+                            <div class="single-widget">
+                                <h2>About Shopper</h2>
+                                <form action="#" class="searchform">
+                                    <input type="text" placeholder="Your email address" />
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                                    <p>Get the most recent updates from <br />our site and be updated your self...</p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <p class="pull-left">All rights reserved.</p>
+                        <p class="pull-right"><span><a target="_blank" href="#"></a></span></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- Rating JS -->
+        <script type="text/javascript" src="js/jquery.raty.min.js"></script>
+        <script type="text/javascript" src="js/jquery.raty.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+    </body>
+</html>
