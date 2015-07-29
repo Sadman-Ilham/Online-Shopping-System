@@ -36,7 +36,7 @@ public class CategoryService {
     }
 
     public CategoryDto getCategoryByName(String type) throws SQLException {
-        query = "select * from category where category_name = " + type;
+        query = "select * from category where category_name = '" + type + "'";
         resultSet = dataRetrieve.getResultset(query);
 
         if(resultSet != null) {
@@ -51,6 +51,7 @@ public class CategoryService {
         while (resultSet.next()) {
             categoryDto.setId(resultSet.getInt("category_id"));
             categoryDto.setName(resultSet.getString("category_name"));
+            break;
         }
         return categoryDto;
     }

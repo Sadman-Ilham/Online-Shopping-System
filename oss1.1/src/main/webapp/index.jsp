@@ -228,13 +228,13 @@ import = "java.util.List"
         <!-- Start of footer -->
         <jsp:include page="Footer.jsp" />
 
-       <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-       <script src="js/jquery-1.11.0.min.js"></script>
-       <!-- Latest compiled and minified JavaScript -->
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-       <!-- Rating JS -->
-       <script type="text/javascript" src="js/jquery.raty.min.js"></script>
-       <script type="text/javascript" src="js/jquery.raty.js"></script>
-       <script type="text/javascript" src="js/custom.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- Rating JS -->
+        <script type="text/javascript" src="js/jquery.raty.min.js"></script>
+        <script type="text/javascript" src="js/jquery.raty.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
     </body>
 </html>

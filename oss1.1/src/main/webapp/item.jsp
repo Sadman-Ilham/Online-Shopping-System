@@ -1,13 +1,35 @@
-<!DOCTYPE html>
-<html>
+<%@page contentType="text/html" pageEncoding="UTF-8"
+import = "com.sadman.dto.ProductDto"
+import = "com.sadman.dto.ReviewDto"
+import = "java.util.List"
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+
+    <%
+    ProductDto productDetails = (ProductDto) request.getAttribute("productDetails");                                //java code
+    List<ReviewDto> reviewList = (List<ReviewDto>) request.getAttribute("reviewList");
+    List<ProductDto> productFromThisSeller = (List<ProductDto>) request.getAttribute("productFromThisSeller");
+    List<ProductDto> productOfSameType = (List<ProductDto>) request.getAttribute("productOfSameType");
+    int cnt = 0;
+    %>
+
     <head>
-        <title>Online Store</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <title>oss | prod</title>
+
         <!-- Font Awesome 4.3.0  -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
         <!-- Modified CSS -->
         <link rel="stylesheet" type="text/css" href="css/productinfo.css">
         <link rel="stylesheet" href="css/perfect-scrollbar.css">
@@ -19,104 +41,11 @@
         <link rel="stylesheet" href="css/chosen.css">
         <link rel="stylesheet" type="text/css" href="css/jquery.raty.css">
     </head>
+
     <body>
-        <nav class="navbar navbar-inverse navbar-trans navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                    <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-                </div>
-                <div class="navbar-collapse collapse" id="navbar-collapsible">
-                    <ul class="nav navbar-nav navbar-right shop-menu">
-                        <li> <a href="#"><i class="fa fa-heart-o fa-2x"></i><span class="icon-text"> Wishlist </span>
-                            <span class="badge">0</span></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i> <span class="icon-text">Cart</span> <span class="badge">0</span></a></li>
-                        <li><a data-toggle="modal" href='#modal-id'><i class="fa fa-user fa-2x"></i><span class="icon-text"> LogIn/SignUp</span></a></li>
-                    </ul>
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group" style="display:inline;">
-                            <div class="input-group">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-chevron-down"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Category 1</a></li>
-                                        <li><a href="#">Category 2</a></li>
-                                        <li><a href="#">Category 3</a></li>
-                                        <li><a href="#">Category 4</a></li>
-                                        <li><a href="#">Category 5</a></li>
-                                    </ul>
-                                </div>
-                                <input type="text" class="form-control" placeholder="What are searching for?">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- End of Nav -->
-        <!-- Start of modal window -->
-        <div class="modal fade" id="modal-id">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h3 class="text-center">Login or <a href="#">Sign up</a></h3>
-                        <div class="row">
-                            <div class="col-xs-4" >
-                                <a href="#" class="btn btn-lg btn-block btn-facebook">Facebook</a>
-                            </div>
-                            <div class="col-xs-4 ">
-                                <a href="#" class="btn btn-lg btn-block btn-twitter">Twitter</a>
-                            </div>
-                            <div class="col-xs-4 ">
-                                <a href="#" class="btn btn-lg btn-block btn-google">Google+</a>
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-xs-12">
-                                <hr class="hrStyle">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 ">
-                                <form action="" class="form-horizontal" method="POST" role="form">
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-                                    </div>
-                                    <span class="help-block"></span>
-                                    <div class="input-group">
-                                        <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-lock"></i></span>
-                                        <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
-                                    </div>
-                                    <span class="help-block"></span>
-                                    <a href="#" class="btn btn-success btn-block btn-lg">Login</a>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="row modal-f">
-                            <div class="col-xs-6 text-left">
-                                <label><input type="checkbox" value="rememberMe"> Remember Me</label>
-                            </div>
-                            <div class="col-xs-6 text-right ">
-                                <p><a href="#">Forgot Password?</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End of Modal Window -->
-        <!-- Start of Sidebar -->
+
+        <jsp:include page="Header.jsp" />
+
         <aside id="productinfo">
             <div class="row">
                 <div class="container-fluid">
@@ -170,13 +99,13 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 productinfo-style">
-                                        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiu</h2>   //starting
+                                        <h2><%=productDetails.getName()%></h2>
                                         <div class="rating-box">
-                                            <div class="rating readonly-rating" data-score="3"></div>
-                                            <span>3 Review(s)</span>
+                                            <div class="rating readonly-rating" data-score="" + <%=productDetails.getRatings()%>></div>
+                                            <span><%=productDetails.getReview()%> Review(s)</span>
                                         </div>
                                         <div class="product-price">
-                                            <span>Tk 4.50</span>
+                                            <span>BDT <%=productDetails.getPrice()%></span>
                                         </div>
                                         <table class="product-actions-single">
                                             <tbody>
@@ -194,11 +123,11 @@
                                         </table>
                                         <div class="total-price">
                                             <span class="total-price-text">Total Price:</span>
-                                            <span class="total">Tk 500.0</span>
+                                            <span class="total">BDT <%=productDetails.getPrice() * 1%></span>
                                         </div>
                                         <div class="seller-info">
                                             <span>Selling by,</span>
-                                            <a href="#">Arnab</a>
+                                            <a href="#"><%=productDetails.getStoreName()%></a>
                                         </div>
                                         <div class="product-actions">
                                             <span class="green product-action current">
@@ -214,13 +143,15 @@
                                             <span class="action-wrapper">
                                             <i class="icons fa fa-heart-o"></i>
                                             <span class="action-name">Add to wishlist</span>
-                                            </span></a>
+                                            </span>
+                                            </a>
                                             </span>
                                             <span class="add-to-compare">
                                             <a href="#"> <span class="action-wrapper">
                                             <i class="icons fa fa-shopping-cart"></i>
                                             <span class="action-name">Add to cart</span>
-                                            </span></a>
+                                            </span>
+                                            </a>
                                             </span>
                                         </div>
                                     </div>
@@ -238,7 +169,7 @@
                                         </ul>
                                         <div class="page-content tab-content">
                                             <div id="tab1" class="tab-pane fade in active">
-                                                <p>Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sollicitudin velit sed leo. </p>
+                                                <p><%=productDetails.getDescription()%></p>
                                                 <p><strong>Specifications:</strong></p>
                                                 <ul>
                                                     <li><i class="icons fa fa-caret-right"></i> Speaker type: Hi-Definition MicroSpeaker</li>
@@ -247,11 +178,6 @@
                                                     <li><i class="icons fa fa-caret-right"></i> Sensitivity (1mW): 114 dB SPL/mW</li>
                                                     <li><i class="icons fa fa-caret-right"></i> Cable length (with extension): 18.0 in./45.0 cm (54.0 in./137.1 cm)</li>
                                                 </ul>
-                                                <p>Ut pharetra augue nec augue. Nam elit agna,endrerit sit amet, tincidunt ac, viverra sed, nulla. Donec porta diam eu massa. Quisque diam lorem, interdum vitae,dapibus ac, scelerisque vitae, pede. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. <br><br>
-                                                Ut pharetra augue nec augue. Nam elit agna,endrerit sit amet, tincidunt ac, viverra sed, nulla. Donec porta diam eu massa. Quisque diam lorem, interdum vitae,dapibus ac, scelerisque vitae, pede. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. </p>
-                                                <p class="tags home-green"><strong>Tags:</strong> <a href="#" class="tag-item">digital camera</a>
-                                                <a href="#" class="tag-item">lorem</a>
-                                                <a href="#" class="tag-item">gps</a></p>
                                             </div>
                                             <div id="tab2" class="tab-pane fade">
                                                 <div class="row">
@@ -271,9 +197,13 @@
                                                     </div>
                                                 </div>
                                                 <ul class="comments">
+
+                                                    <%                                                                      //java code
+                                                    for(ReviewDto review : reviewList) {
+                                                    %>
                                                     <li>
-                                                        <p><strong><a href="#">Anna Doe</a></strong></p>
-                                                        <span class="date">2013-10-09 09:23</span>
+                                                        <p><strong><a href="#"><%=review.getCustomerName()%></a></strong></p>
+                                                        <span class="date"><%=review.getDateTime()%></span>
                                                         <i class="icons green fa fa-thumbs-o-up"></i>
                                                         <i class="icons sum no-pointer green-sum">1</i>
                                                         <i class="icons red fa fa-thumbs-o-down"></i>
@@ -282,8 +212,11 @@
                                                             <div class="rating readonly-rating" data-score="4"></div>
                                                         </div>
                                                         <br>
-                                                        <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
+                                                        <p><%=review.getComment()%></p>
                                                     </li>
+                                                    <%
+                                                    }
+                                                    %>
                                                     <li>
                                                         <p><strong><a href="#">Anna Doe</a></strong></p>
                                                         <span class="date">2013-10-09 09:23</span>
@@ -303,34 +236,7 @@
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li>
-                                                        <p><strong><a href="#">Anna Doe</a></strong></p>
-                                                        <span class="date">2013-10-09 09:23</span>
-                                                        <i class="icons green fa fa-thumbs-o-up"></i>
-                                                        <i class="icons sum no-pointer red-sum">-2</i>
-                                                        <i class="icons red fa fa-thumbs-o-down"></i>
-                                                        <i class="icons fa fa-reply"></i>
-                                                        <div class="rating-box">
-                                                            <div class="rating readonly-rating" data-score="4"></div>
-                                                        </div>
-                                                        <br>
-                                                        <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-                                                    </li>
                                                 </ul>
-                                                <h3>WRITE A REVIEW</h3>
-                                                <p>Now please write a (short) review....(min. 200, max. 2000 characters)</p>
-                                                <textarea id="review-textarea"></textarea>
-                                                <p>First: Rate the product. Please select a rating between 0 (poorest) and 5 stars (best)</p>
-                                                <div class="rating-box">
-                                                    Rating:
-                                                    <div class="rating rate" data-score="3"></div>
-                                                </div>
-                                                <div class="char-counter">
-                                                    <label>Characters written</label>
-                                                    <input data-target="#review-textarea" type="text">
-                                                </div>
-                                                <br>
-                                                <input type="submit" class="dark-blue big" value="Submit a review">
                                             </div>
                                             <div id="tab3" class="tab-pane fade">
                                                 <ul class="comments">
@@ -359,34 +265,6 @@
                                                         <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
                                                     </li>
                                                 </ul>
-                                                <a href="#" class="button home-green"><i class="icons icon-spinner"></i> Refresh comments list</a>
-                                                <a href="#" class="button orange"><i class="icons icon-rss"></i> RSS feed for comments to this post</a>
-                                                <br/><br/>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                                        <h3>ADD A COMMENT</h3>
-                                                        <label>Name (required)</label>
-                                                        <input type="text">
-                                                        <br><br>
-                                                        <label>E-mail (required, but will not display)</label>
-                                                        <input type="text">
-                                                        <br><br>
-                                                        <label>Website (required)</label>
-                                                        <input type="text">
-                                                        <br><br>
-                                                        <label>Comment (required)</label>
-                                                        <textarea></textarea>
-                                                        <br><br>
-                                                        <input id="comments-checkbox" type="checkbox"><label for="comments-checkbox">Notify me of follow-up comments</label>
-                                                        <br><br>
-                                                        <img src="img/captcha.jpg" alt="">
-                                                        <br><br>
-                                                        <label><a href="#">Refresh</a></label>
-                                                        <input type="text">
-                                                        <br><br>
-                                                        <input type="submit" value="Submit comment" class="dark-blue big">
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -623,153 +501,9 @@
                 </div>
             </div>
         </section>
-        <!-- Start of footer -->
-        <footer id="footer">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <div class="companyinfo">
-                                <h2><span>e</span>-shopper</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="images/home/iframe1.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="images/home/iframe2.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="images/home/iframe3.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                    <div class="iframe-img">
-                                        <img src="images/home/iframe4.png" alt="" />
-                                    </div>
-                                    <div class="overlay-icon">
-                                        <i class="fa fa-play-circle-o"></i>
-                                    </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <div class="address">
-                                <img src="images/home/map.png" alt="" />
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-widget">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <div class="single-widget">
-                                <h2>Service</h2>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">Online Help</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">Order Status</a></li>
-                                    <li><a href="#">Change Location</a></li>
-                                    <li><a href="#">FAQ’s</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <div class="single-widget">
-                                <h2>Quock Shop</h2>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">T-Shirt</a></li>
-                                    <li><a href="#">Mens</a></li>
-                                    <li><a href="#">Womens</a></li>
-                                    <li><a href="#">Gift Cards</a></li>
-                                    <li><a href="#">Shoes</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <div class="single-widget">
-                                <h2>Policies</h2>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">Terms of Use</a></li>
-                                    <li><a href="#">Privecy Policy</a></li>
-                                    <li><a href="#">Refund Policy</a></li>
-                                    <li><a href="#">Billing System</a></li>
-                                    <li><a href="#">Ticket System</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                            <div class="single-widget">
-                                <h2>About Shopper</h2>
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="#">Company Information</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Store Location</a></li>
-                                    <li><a href="#">Affillate Program</a></li>
-                                    <li><a href="#">Copyright</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-sm-offset-1 col-xs-offset-1">
-                            <div class="single-widget">
-                                <h2>About Shopper</h2>
-                                <form action="#" class="searchform">
-                                    <input type="text" placeholder="Your email address" />
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                                    <p>Get the most recent updates from <br />our site and be updated your self...</p>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <p class="pull-left">All rights reserved.</p>
-                        <p class="pull-right"><span><a target="_blank" href="#"></a></span></p>
-                    </div>
-                </div>
-            </div>
-        </footer>
+
+        <jsp:include page="Footer.jsp" />
+
         <!-- JavaScript -->
         <script src="js/modernizr.min.js"></script>
         <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -804,3 +538,4 @@
         <script src="js/custom.js"></script>
     </body>
 </html>
+

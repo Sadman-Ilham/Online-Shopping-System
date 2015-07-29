@@ -2,6 +2,7 @@ package com.sadman.service;
 
 import com.sadman.database.DataRetrieve;
 import com.sadman.database.DatabaseConnection;
+import com.sadman.dto.CustomerDetailsDto;
 import com.sadman.dto.ReviewDto;
 
 import java.sql.ResultSet;
@@ -26,7 +27,7 @@ public class ReviewService {
     }
 
     public List<ReviewDto> getReviewByProductId(int pid) throws SQLException {
-        query = "select * from review order by review_dateTime where review_productId = " + pid;
+        query = "select * from review where review_productId = " + pid + " order by review_dateTime desc";
         resultSet = dataRetrieve.getResultset(query);
 
         if(resultSet != null) {
@@ -63,7 +64,7 @@ public class ReviewService {
     private String getCustomerName(int cid) throws SQLException {
         CustomerService customerService = new CustomerService();
         CustomerDetailsDto customerDetailsDto = customerService.getCustomerById(cid);
-        return customerDetailsDto.getName;
+        return customerDetailsDto.getFirstName() + " " + customerDetailsDto.getLastName();
     }
 
 }

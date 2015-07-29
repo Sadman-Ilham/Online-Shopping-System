@@ -2,6 +2,7 @@ package com.sadman.service;
 
 import com.sadman.database.DataRetrieve;
 import com.sadman.database.DatabaseConnection;
+import com.sadman.dto.CustomerDetailsDto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,7 +23,7 @@ public class CustomerService {
     }
 
     public CustomerDetailsDto getCustomerById(int id) throws SQLException {
-        query = "select * from customerDetails where customerDetails_customerId = " + id;
+        query = "select * from customerdetails where customerdetails_customerId = " + id;
         resultSet = dataRetrieve.getResultset(query);
 
         if(resultSet != null) {
@@ -33,11 +34,19 @@ public class CustomerService {
     }
 
     private CustomerDetailsDto fillTheObject() throws SQLException {
-        CustomerDetailsDto customerDetailsDto = new CustomerDetailsDro();
+        CustomerDetailsDto customerDetailsDto = new CustomerDetailsDto();
 
         while(resultSet.next()) {
-            //customerDetailsDto.set ...
+            customerDetailsDto.setCustomerId(resultSet.getInt("customerdetails_customerId"));
+            customerDetailsDto.setFirstName(resultSet.getString("customerdetails_firstName"));
+            customerDetailsDto.setLastName(resultSet.getString("customerdetails_lastName"));
+            customerDetailsDto.setGender(resultSet.getString("customerdetails_gender"));
+            customerDetailsDto.setBirthDate(resultSet.getString("customerdetails_birthDate"));
+            customerDetailsDto.setPhone(resultSet.getString("customerdetails_phone"));
+            customerDetailsDto.setAddress(resultSet.getString("customerdetails_address"));
+            customerDetailsDto.setRegistrationDate(resultSet.getString("customerdetails_registrationDate"));
         }
+
         return customerDetailsDto;
     }
 

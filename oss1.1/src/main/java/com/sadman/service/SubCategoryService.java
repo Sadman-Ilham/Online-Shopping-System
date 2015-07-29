@@ -26,7 +26,7 @@ public class SubCategoryService {
     }
 
     public SubCategoryDto getSubCategoryByName(String type) throws SQLException {
-        query = "select * from subCategory where subCategory_name = " + type;
+        query = "select * from subcategory where subcategory_name = " + type;
         resultSet = dataRetrieve.getResultset(query);
 
         if(resultSet != null) {
@@ -39,8 +39,8 @@ public class SubCategoryService {
     private SubCategoryDto fillTheObject() throws SQLException {
         SubCategoryDto subCategoryDto = new SubCategoryDto();
         while (resultSet.next()) {
-            subCategoryDto.setId(resultSet.getInt("subCategory_id"));
-            subCategoryDto.setName(resultSet.getString("subCategory_name"));
+            subCategoryDto.setId(resultSet.getInt("subcategory_id"));
+            subCategoryDto.setName(resultSet.getString("subcategory_name"));
         }
         return subCategoryDto;
     }

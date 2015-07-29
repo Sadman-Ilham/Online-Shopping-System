@@ -2,7 +2,7 @@ package com.sadman.service;
 
 import com.sadman.database.DataRetrieve;
 import com.sadman.database.DatabaseConnection;
-import com.sadman.dto.StoreDto;
+import com.sadman.dto.StoreDetailsDto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,9 +22,10 @@ public class StoreService {
         dataRetrieve = new DataRetrieve(databaseConnection);
     }
 
-    public StoreDto getStoreById(int id) throws SQLException {
-        query = "select * from store_details where store_details_storeId = " + id;
+    public StoreDetailsDto getStoreById(int id) throws SQLException {
+        query = "select * from storedetails where storedetails_storeId = " + id;
         resultSet = dataRetrieve.getResultset(query);
+
         if(resultSet != null) {
             return fillTheObject();
         }else {
@@ -32,15 +33,15 @@ public class StoreService {
         }
     }
 
-    public StoreDto fillTheObject() throws SQLException {
-        StoreDto store = new StoreDto();
+    public StoreDetailsDto fillTheObject() throws SQLException {
+        StoreDetailsDto store = new StoreDetailsDto();
 
         while(resultSet.next()) {
-            store.setId(resultSet.getInt("store_details_storeId"));
-            store.setName(resultSet.getString("store_details_name"));
-            store.setRegistrationDateTime(resultSet.getString("store_details_registrationDateTime"));
-            store.setBannerUrl(resultSet.getString("store_details_bannerUrl"));
-            store.setRatings(resultSet.getInt("store_details_ratings"));
+            store.setStoreId(resultSet.getInt("storedetails_storeId"));
+            store.setName(resultSet.getString("storedetails_name"));
+            store.setRegistrationDateTime(resultSet.getString("storedetails_registrationDateTime"));
+            store.setBannerUrl(resultSet.getString("storedetails_bannerUrl"));
+            store.setRatings(resultSet.getInt("storedetails_ratings"));
         }
 
         return store;

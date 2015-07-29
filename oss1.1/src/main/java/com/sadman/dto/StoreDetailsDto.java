@@ -3,20 +3,20 @@ package com.sadman.dto;
 /**
  * Created by Sadman on 7/24/2015.
  */
-public class StoreDto {
+public class StoreDetailsDto {
 
-    private int id;
+    private int storeId;
     private String name;
     private String registrationDateTime;
     private String bannerUrl;
     private int ratings;
 
-    public int getId() {
-        return id;
+    public int getStoreId() {
+        return storeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStoreId(int storeId) {
+        this.storeId = storeId;
     }
 
     public String getName() {
@@ -50,5 +50,4 @@ public class StoreDto {
     public void setRatings(int ratings) {
         this.ratings = ratings;
     }
-
 }

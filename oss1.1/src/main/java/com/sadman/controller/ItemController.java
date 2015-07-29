@@ -44,14 +44,14 @@ public class ItemController extends HttpServlet {
             categoryService = new CategoryService();
             categoryDto = categoryService.getCategoryById(productDetails.getCategoryId());
 
-            productOfSameType = productService.getProductByCategory(categoryDto.getName());
+            productOfSameType = productService.getProductByCategory("cat", categoryDto.getName());
 
             request.setAttribute("productDetails", productDetails);
             request.setAttribute("reviewList", reviewList);
             request.setAttribute("productFromThisSeller", productFromThisSeller);
             request.setAttribute("productOfSameType", productOfSameType);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("item");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("item.jsp");
             dispatcher.forward(request, response);
         }catch (Exception e) {}
     }
