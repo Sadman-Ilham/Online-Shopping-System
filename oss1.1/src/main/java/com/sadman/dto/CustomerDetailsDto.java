@@ -1,7 +1,7 @@
 package com.sadman.dto;
 
 /**
- * Created by BS15 on 7/29/2015.
+ * Created by Sadman on 7/29/2015.
  */
 public class CustomerDetailsDto {
 

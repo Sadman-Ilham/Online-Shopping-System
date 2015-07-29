@@ -74,7 +74,9 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <meta charset=\"utf-8\">\r\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\r\n");
       out.write("\r\n");
-      out.write("        <title>oss | prod</title>\r\n");
+      out.write("        <title>oss | ");
+      out.print(productDetails.getName());
+      out.write("</title>\r\n");
       out.write("\r\n");
       out.write("        <!-- Font Awesome 4.3.0  -->\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\">\r\n");
@@ -156,9 +158,9 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <div class=\"col-lg-8 col-md-8 col-sm-8 col-xs-8 productinfo-style\">\r\n");
       out.write("                                        <h2>");
       out.print(productDetails.getName());
-      out.write("</h2>   //starting\r\n");
+      out.write("</h2>\r\n");
       out.write("                                        <div class=\"rating-box\">\r\n");
-      out.write("                                            <div class=\"rating readonly-rating\" data-score=\"\" + ");
+      out.write("                                            <div class=\"rating readonly-rating\" data-score=");
       out.print(productDetails.getRatings());
       out.write("></div>\r\n");
       out.write("                                            <span>");

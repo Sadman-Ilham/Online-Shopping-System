@@ -21,7 +21,7 @@ import = "java.util.List"
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <title>oss | prod</title>
+        <title>oss | <%=productDetails.getName()%></title>
 
         <!-- Font Awesome 4.3.0  -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -101,7 +101,7 @@ import = "java.util.List"
                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 productinfo-style">
                                         <h2><%=productDetails.getName()%></h2>
                                         <div class="rating-box">
-                                            <div class="rating readonly-rating" data-score="" + <%=productDetails.getRatings()%>></div>
+                                            <div class="rating readonly-rating" data-score=<%=productDetails.getRatings()%>></div>
                                             <span><%=productDetails.getReview()%> Review(s)</span>
                                         </div>
                                         <div class="product-price">
