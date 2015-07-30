@@ -59,7 +59,7 @@ import = "java.util.List"
                                         <div id="product-slider">
                                             <ul class="slides">
                                                 <li>
-                                                    <img class="cloud-zoom" src="img/products/single1.jpg" data-large="img/products/sample1.jpg" alt=""/>
+                                                    <img class="cloud-zoom" src=<%=productDetails.getImageUrl()%> data-large=<%=productDetails.getImageUrl()%> alt=""/>
                                                     <a class="fullscreen-button" href="img/products/single1.jpg">
                                                     </a>
                                                 </li>
@@ -68,24 +68,18 @@ import = "java.util.List"
                                         <div id="product-carousel">
                                             <ul class="slides">
                                                 <li>
-                                                    <a class="fancybox" rel="product-images" href="img/products/single1.jpg"></a>
-                                                    <img src="img/products/single1.jpg" data-large="img/products/single1.jpg" alt=""/>
+                                                    <a class="fancybox" rel="product-images" href=<%=productDetails.getImageUrl()%>></a>
+                                                    <img src=<%=productDetails.getImageUrl()%> data-large=<%=productDetails.getImageUrl()%> alt=""/>
                                                 </li>
+
                                                 <li>
-                                                    <a class="fancybox" rel="product-images" href="img/products/single2.jpg"></a>
-                                                    <img src="img/products/single2.jpg" data-large="img/products/single2.jpg" alt="" />
+                                                    <a class="fancybox" rel="product-images" href="images/products/45.jpg"></a>
+                                                    <img src="images/products/45.jpg" data-large="images/products/45.jpg" alt=""/>
                                                 </li>
+
                                                 <li>
-                                                    <a class="fancybox" rel="product-images" href="img/products/single3.jpg"></a>
-                                                    <img src="img/products/single3.jpg" data-large="img/products/single3.jpg" alt="" />
-                                                </li>
-                                                <li>
-                                                    <a class="fancybox" rel="product-images" href="img/products/single4.jpg"></a>
-                                                    <img src="img/products/single4.jpg" data-large="img/products/single4.jpg" alt="" />
-                                                </li>
-                                                <li>
-                                                    <a class="fancybox" rel="product-images" href="img/products/single5.jpg"></a>
-                                                    <img src="img/products/single5.jpg" data-large="img/products/single5.jpg" alt="" />
+                                                    <a class="fancybox" rel="product-images" href="images/products/48.jpg"></a>
+                                                    <img src="images/products/48.jpg" data-large="images/products/48.jpg" alt=""/>
                                                 </li>
                                             </ul>
                                             <div class="product-arrows">
@@ -165,19 +159,11 @@ import = "java.util.List"
                                         <ul class="nav nav-tabs navtab-style">
                                             <li class="active"><a  data-toggle="tab" href="#tab1">Description</a></li>
                                             <li><a  data-toggle="tab" href="#tab2">Review</a></li>
-                                            <li><a  data-toggle="tab" href="#tab3">Comments</a></li>
+                                            <li><a  data-toggle="tab" href="#tab3">Images</a></li>
                                         </ul>
                                         <div class="page-content tab-content">
                                             <div id="tab1" class="tab-pane fade in active">
                                                 <p><%=productDetails.getDescription()%></p>
-                                                <p><strong>Specifications:</strong></p>
-                                                <ul>
-                                                    <li><i class="icons fa fa-caret-right"></i> Speaker type: Hi-Definition MicroSpeaker</li>
-                                                    <li><i class="icons fa fa-caret-right"></i> Frequency range: 25Hz-18.5kHz</li>
-                                                    <li><i class="icons fa fa-caret-right"></i> Impedance (1kHz): 26 Ohms</li>
-                                                    <li><i class="icons fa fa-caret-right"></i> Sensitivity (1mW): 114 dB SPL/mW</li>
-                                                    <li><i class="icons fa fa-caret-right"></i> Cable length (with extension): 18.0 in./45.0 cm (54.0 in./137.1 cm)</li>
-                                                </ul>
                                             </div>
                                             <div id="tab2" class="tab-pane fade">
                                                 <div class="row">
@@ -241,28 +227,8 @@ import = "java.util.List"
                                             <div id="tab3" class="tab-pane fade">
                                                 <ul class="comments">
                                                     <li>
-                                                        <p><strong><a href="#">Anna Doe</a></strong></p>
-                                                        <span class="date">2013-10-09 09:23</span>
-                                                        <i class="icons fa fa-reply"></i>
-                                                        <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-                                                    </li>
-                                                    <li>
-                                                        <p><strong><a href="#">Anna Doe</a></strong></p>
-                                                        <span class="date">2013-10-09 09:23</span>
-                                                        <i class="icons fa fa-reply"></i>
-                                                        <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-                                                        <ul>
-                                                            <li>
-                                                                <p><strong><a href="#">Anna Doe</a></strong></p>
-                                                                <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <p><strong><a href="#">Anna Doe</a></strong></p>
-                                                        <span class="date">2013-10-09 09:23</span>
-                                                        <i class="icons fa fa-reply"></i>
-                                                        <p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque.</p>
+                                                        <img style="width: 100%; height: 100%;" src=<%=productDetails.getImageUrl()%> />
+                                                        <img style="width: 100%; height: 100%;" src=<%=productDetails.getImageUrl()%> />
                                                     </li>
                                                 </ul>
                                             </div>
