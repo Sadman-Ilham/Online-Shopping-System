@@ -98,9 +98,22 @@ import = "java.util.List"
                                             <div class="rating readonly-rating" data-score=<%=productDetails.getRatings()%>></div>
                                             <span><%=productDetails.getReview()%> Review(s)</span>
                                         </div>
+                                        <%
+                                        if(productDetails.getSale() > 0) {
+                                        %>
+                                        <div class="product-price">
+                                            <span>BDT <%=productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100)%></span>
+                                            <del>BDT <%=productDetails.getPrice()%></del>
+                                        </div>
+                                        <%
+                                        }else {
+                                        %>
                                         <div class="product-price">
                                             <span>BDT <%=productDetails.getPrice()%></span>
                                         </div>
+                                        <%
+                                        }
+                                        %>
                                         <table class="product-actions-single">
                                             <tbody>
                                                 <tr>

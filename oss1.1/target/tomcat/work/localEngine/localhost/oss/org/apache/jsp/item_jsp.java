@@ -167,15 +167,38 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            <div class=\"rating readonly-rating\" data-score=");
       out.print(productDetails.getRatings());
       out.write("></div>\r\n");
-      out.write("                                            <span>");
+      out.write("                                            <span><h5 style=\"float: left;\">");
       out.print(productDetails.getReview());
-      out.write(" Review(s)</span>\r\n");
+      out.write(" Review(s)</h5></span>\r\n");
       out.write("                                        </div>\r\n");
+      out.write("                                        ");
+
+                                        if(productDetails.getSale() > 0) {
+                                        
+      out.write("\r\n");
+      out.write("                                        <div class=\"product-price\">\r\n");
+      out.write("                                            <span>BDT ");
+      out.print(productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100));
+      out.write("</span>\r\n");
+      out.write("                                            <del>BDT ");
+      out.print(productDetails.getPrice());
+      out.write("</del>\r\n");
+      out.write("                                        </div>\r\n");
+      out.write("                                        ");
+
+                                        }else {
+                                        
+      out.write("\r\n");
       out.write("                                        <div class=\"product-price\">\r\n");
       out.write("                                            <span>BDT ");
       out.print(productDetails.getPrice());
       out.write("</span>\r\n");
       out.write("                                        </div>\r\n");
+      out.write("                                        ");
+
+                                        }
+                                        
+      out.write("\r\n");
       out.write("                                        <table class=\"product-actions-single\">\r\n");
       out.write("                                            <tbody>\r\n");
       out.write("                                                <tr>\r\n");

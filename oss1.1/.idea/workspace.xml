@@ -63,8 +63,8 @@
           <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="2.9577703">
-                  <caret line="206" column="93" selection-start-line="206" selection-start-column="93" selection-end-line="206" selection-end-column="93" />
+                <state vertical-scroll-proportion="0.7179054">
+                  <caret line="113" column="116" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="116" />
                   <folding />
                 </state>
               </provider>
@@ -216,8 +216,8 @@
           <file leaf-file-name="item.jsp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/item.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7871622">
-                  <caret line="81" column="116" selection-start-line="81" selection-start-column="116" selection-end-line="81" selection-end-column="116" />
+                <state vertical-scroll-proportion="0.47635135">
+                  <caret line="98" column="91" selection-start-line="98" selection-start-column="91" selection-end-line="98" selection-end-column="91" />
                   <folding />
                 </state>
               </provider>
@@ -839,7 +839,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1304,16 +1304,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.9577703">
-          <caret line="206" column="93" selection-start-line="206" selection-start-column="93" selection-end-line="206" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.7179054">
+          <caret line="113" column="116" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="116" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/item.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7871622">
-          <caret line="81" column="116" selection-start-line="81" selection-start-column="116" selection-end-line="81" selection-end-column="116" />
+        <state vertical-scroll-proportion="0.47635135">
+          <caret line="98" column="91" selection-start-line="98" selection-start-column="91" selection-end-line="98" selection-end-column="91" />
           <folding />
         </state>
       </provider>
