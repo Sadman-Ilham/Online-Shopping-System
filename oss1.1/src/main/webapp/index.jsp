@@ -110,7 +110,7 @@ import = "java.util.List"
                             %>
                                 <a href="#">
                                 <div class="col-sm-4 col-xs-4 product-info text-center">
-                                    <img class="product-image" src="images/products/1.jpg" alt=<%=product.getName()%> />
+                                    <img class="product-image" src=<%=product.getImageUrl()%> alt=<%=product.getName()%> />
                                     <span>BDT <%=product.getPrice() - ((product.getSale()*product.getPrice())/100)%></span>
                                     <del>BDT <%=product.getPrice()%></del>
                                 </div>
@@ -130,7 +130,7 @@ import = "java.util.List"
                             %>
                                 <a href="#">
                                 <div class="col-sm-4 col-xs-4 product-info text-center">
-                                    <img class="product-image" src="images/products/2.jpg" alt=<%=product.getName()%> />
+                                    <img class="product-image" src=<%=product.getImageUrl()%> alt=<%=product.getName()%> />
                                     <span>BDT <%=product.getPrice() - ((product.getSale()*product.getPrice())/100)%></span>
                                     <del>BDT <%=product.getPrice()%></del>
                                 </div>
@@ -180,7 +180,7 @@ import = "java.util.List"
                             %>
                                 <a href="#">
                                 <div class="col-sm-4 col-xs-4 product-info text-center">
-                                    <img class="product-image" src="images/products/3.jpg" alt=<%=product.getName()%> />
+                                    <img class="product-image" src=<%=product.getImageUrl()%> alt=<%=product.getName()%> />
                                     <span>BDT <%=product.getPrice()%></span>
                                     <div class="rating-box">
                                         <div class="rating readonly-rating" data-score="4"></div>
@@ -204,7 +204,7 @@ import = "java.util.List"
                             %>
                                 <a href="#">
                                 <div class="col-sm-4 col-xs-4 product-info text-center">
-                                    <img class="product-image" src="images/products/4.jpg" alt=<%=product.getName()%> />
+                                    <img class="product-image" src=<%=product.getImageUrl()%> alt=<%=product.getName()%> />
                                     <span>BDT <%=product.getPrice()%></span>
                                     <div class="rating-box">
                                         <div class="rating readonly-rating" data-score=<%=product.getRatings()%>></div>

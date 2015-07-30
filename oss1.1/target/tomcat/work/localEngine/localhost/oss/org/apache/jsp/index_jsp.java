@@ -167,7 +167,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                                <a href=\"#\">\r\n");
       out.write("                                <div class=\"col-sm-4 col-xs-4 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/products/1.jpg\" alt=");
+      out.write("                                    <img class=\"product-image\" src=");
+      out.print(product.getImageUrl());
+      out.write(" alt=");
       out.print(product.getName());
       out.write(" />\r\n");
       out.write("                                    <span>BDT ");
@@ -197,7 +199,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                                <a href=\"#\">\r\n");
       out.write("                                <div class=\"col-sm-4 col-xs-4 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/products/2.jpg\" alt=");
+      out.write("                                    <img class=\"product-image\" src=");
+      out.print(product.getImageUrl());
+      out.write(" alt=");
       out.print(product.getName());
       out.write(" />\r\n");
       out.write("                                    <span>BDT ");
@@ -257,7 +261,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                                <a href=\"#\">\r\n");
       out.write("                                <div class=\"col-sm-4 col-xs-4 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/products/3.jpg\" alt=");
+      out.write("                                    <img class=\"product-image\" src=");
+      out.print(product.getImageUrl());
+      out.write(" alt=");
       out.print(product.getName());
       out.write(" />\r\n");
       out.write("                                    <span>BDT ");
@@ -291,7 +297,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("                                <a href=\"#\">\r\n");
       out.write("                                <div class=\"col-sm-4 col-xs-4 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/products/4.jpg\" alt=");
+      out.write("                                    <img class=\"product-image\" src=");
+      out.print(product.getImageUrl());
+      out.write(" alt=");
       out.print(product.getName());
       out.write(" />\r\n");
       out.write("                                    <span>BDT ");

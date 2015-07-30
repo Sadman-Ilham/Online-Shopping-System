@@ -65,7 +65,7 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
     List<ReviewDto> reviewList = (List<ReviewDto>) request.getAttribute("reviewList");
     List<ProductDto> productFromThisSeller = (List<ProductDto>) request.getAttribute("productFromThisSeller");
     List<ProductDto> productOfSameType = (List<ProductDto>) request.getAttribute("productOfSameType");
-    int cnt = 0;
+    int cnt = 0, size = 0, i = 0;
     
       out.write("\r\n");
       out.write("\r\n");
@@ -156,9 +156,9 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"col-lg-8 col-md-8 col-sm-8 col-xs-8 productinfo-style\">\r\n");
-      out.write("                                        <h2>");
+      out.write("                                        <h1><strong>");
       out.print(productDetails.getName());
-      out.write("</h2>\r\n");
+      out.write("</strong></h1>\r\n");
       out.write("                                        <div class=\"rating-box\">\r\n");
       out.write("                                            <div class=\"rating readonly-rating\" data-score=");
       out.print(productDetails.getRatings());
@@ -363,6 +363,117 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div class=\"col-sm-2 col-xs-2\">\r\n");
       out.write("                        <h4>\r\n");
       out.write("                        <a href=\"#\">\r\n");
+      out.write("                        <i>Product From This Store</i>\r\n");
+      out.write("                        </a>\r\n");
+      out.write("                        </h4>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"col-sm-offset-9 col-xs-offset-9 col-sm-1 col-xs- text-center\">\r\n");
+      out.write("                        <h4>\r\n");
+      out.write("                        <a href=\"#\"><i>View more</i></a>\r\n");
+      out.write("                        </h4>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("            <div class=\"row\">\r\n");
+      out.write("                <div class=\"container-fluid\">\r\n");
+      out.write("                    <div class=\"col-sm-12 col-xs-12\">\r\n");
+      out.write("                        <div class=\"row first-row\">\r\n");
+      out.write("                            <div class=\"container-fluid\">\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                ");
+
+                                size = productFromThisSeller.size();
+                                if(size > 4) {
+                                    cnt = 4;
+                                }else {
+                                    cnt = size;
+                                }
+                                for(i=0; i<cnt; i++) {
+                                
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                <a href=\"#\">\r\n");
+      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
+      out.write("                                    <img class=\"product-image\" src=");
+      out.print(productFromThisSeller.get(i).getImageUrl());
+      out.write(" alt=\"\" />\r\n");
+      out.write("                                    <span>BDT ");
+      out.print(productFromThisSeller.get(i).getPrice());
+      out.write("</span>\r\n");
+      out.write("                                    <div class=\"rating-box\">\r\n");
+      out.write("                                        <div class=\"rating readonly-rating\" data-score=");
+      out.print(productFromThisSeller.get(i).getRatings());
+      out.write("></div>\r\n");
+      out.write("                                        <span>");
+      out.print(productFromThisSeller.get(i).getReview());
+      out.write(" Review(s)</span>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                                </a>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                ");
+
+                                }
+                                
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"row second-row\">\r\n");
+      out.write("                            <div class=\"container-fluid\">\r\n");
+      out.write("\r\n");
+      out.write("                                ");
+
+                                if( (size - cnt) > 4) {
+                                    cnt = 4;
+                                }else {
+                                    cnt = size - cnt;
+                                }
+                                for(i = 0; i<cnt; i++) {
+                                
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                <a href=\"#\">\r\n");
+      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
+      out.write("                                    <img class=\"product-image\" src=");
+      out.print(productFromThisSeller.get(i+4).getImageUrl());
+      out.write(" alt=\"\" />\r\n");
+      out.write("                                    <span>BDT ");
+      out.print(productFromThisSeller.get(i+4).getPrice());
+      out.write("</span>\r\n");
+      out.write("                                    <div class=\"rating-box\">\r\n");
+      out.write("                                        <div class=\"rating readonly-rating\" data-score=");
+      out.print(productFromThisSeller.get(i+4).getRatings());
+      out.write("></div>\r\n");
+      out.write("                                        <span>");
+      out.print(productFromThisSeller.get(i+4).getReview());
+      out.write(" Review(s)</span>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                                </a>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                ");
+
+                                }
+                                
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </section>\r\n");
+      out.write("        <!-- Products On Sale -->\r\n");
+      out.write("        <section id=\"products-on-sale\" class=\"product-content\">\r\n");
+      out.write("            <div class=\"row\">\r\n");
+      out.write("                <div class=\"container-fluid\">\r\n");
+      out.write("                    <div class=\"col-sm-2 col-xs-2\">\r\n");
+      out.write("                        <h4>\r\n");
+      out.write("                        <a href=\"#\">\r\n");
       out.write("                        <i>Related Products</i>\r\n");
       out.write("                        </a>\r\n");
       out.write("                        </h4>\r\n");
@@ -379,203 +490,90 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div class=\"col-sm-12 col-xs-12\">\r\n");
       out.write("                        <div class=\"row first-row\">\r\n");
       out.write("                            <div class=\"container-fluid\">\r\n");
+      out.write("\r\n");
+      out.write("                                ");
+
+                                size = productOfSameType.size();
+                                if(size > 4) {
+                                    cnt = 4;
+                                }else {
+                                    cnt = size;
+                                }
+                                for(i=0; i<cnt; i++) {
+                                
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("                                <a href=\"#\">\r\n");
       out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product1.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
+      out.write("                                    <img class=\"product-image\" src=");
+      out.print(productOfSameType.get(i).getImageUrl());
+      out.write(" alt=\"\" />\r\n");
+      out.write("                                    <span>BDT ");
+      out.print(productOfSameType.get(i).getPrice());
+      out.write("</span>\r\n");
       out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
+      out.write("                                        <div class=\"rating readonly-rating\" data-score=");
+      out.print(productOfSameType.get(i).getRatings());
+      out.write("></div>\r\n");
+      out.write("                                        <span>");
+      out.print(productOfSameType.get(i).getReview());
+      out.write(" Review(s)</span>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product1.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product2.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product3.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                ");
+
+                                }
+                                
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                        <div class=\"row second-row\">\r\n");
       out.write("                            <div class=\"container-fluid\">\r\n");
+      out.write("\r\n");
+      out.write("                                ");
+
+                                if( (size - cnt) > 4) {
+                                    cnt = 4;
+                                }else {
+                                    cnt = size - cnt;
+                                }
+                                for(i = 0; i<cnt; i++) {
+                                
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("                                <a href=\"#\">\r\n");
       out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product1.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
+      out.write("                                    <img class=\"product-image\" src=");
+      out.print(productOfSameType.get(i+4).getImageUrl());
+      out.write(" alt=\"\" />\r\n");
+      out.write("                                    <span>BDT ");
+      out.print(productOfSameType.get(i+4).getPrice());
+      out.write("</span>\r\n");
       out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
+      out.write("                                        <div class=\"rating readonly-rating\" data-score=");
+      out.print(productOfSameType.get(i+4).getRatings());
+      out.write("></div>\r\n");
+      out.write("                                        <span>");
+      out.print(productOfSameType.get(i+4).getReview());
+      out.write(" Review(s)</span>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product1.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product2.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product3.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("            </div>\r\n");
-      out.write("        </section>\r\n");
-      out.write("        <!-- Products On Sale -->\r\n");
-      out.write("        <section id=\"products-on-sale\" class=\"product-content\">\r\n");
-      out.write("            <div class=\"row\">\r\n");
-      out.write("                <div class=\"container-fluid\">\r\n");
-      out.write("                    <div class=\"col-sm-2 col-xs-2\">\r\n");
-      out.write("                        <h4>\r\n");
-      out.write("                        <a href=\"#\">\r\n");
-      out.write("                        <i>PRODUCTS ON SALE</i>\r\n");
-      out.write("                        </a>\r\n");
-      out.write("                        </h4>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"col-sm-offset-9 col-xs-offset-9 col-sm-1 col-xs- text-center\">\r\n");
-      out.write("                        <h4>\r\n");
-      out.write("                        <a href=\"#\"><i>View more</i></a>\r\n");
-      out.write("                        </h4>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("            </div>\r\n");
-      out.write("            <div class=\"row\">\r\n");
-      out.write("                <div class=\"container-fluid\">\r\n");
-      out.write("                    <div class=\"col-sm-12 col-xs-12\">\r\n");
-      out.write("                        <div class=\"row first-row\">\r\n");
-      out.write("                            <div class=\"container-fluid\">\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product1.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product1.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product2.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product3.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"row second-row\">\r\n");
-      out.write("                            <div class=\"container-fluid\">\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product1.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product1.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product2.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
-      out.write("                                <a href=\"#\">\r\n");
-      out.write("                                <div class=\"col-sm-3 col-xs-3 product-info text-center\">\r\n");
-      out.write("                                    <img class=\"product-image\" src=\"images/home/product3.jpg\" alt=\"\" />\r\n");
-      out.write("                                    <span>US $4.50</span>\r\n");
-      out.write("                                    <div class=\"rating-box\">\r\n");
-      out.write("                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                        <span>3 Review(s)</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                </a>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("                                ");
+
+                                }
+                                
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");

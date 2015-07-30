@@ -13,7 +13,7 @@ import = "java.util.List"
     List<ReviewDto> reviewList = (List<ReviewDto>) request.getAttribute("reviewList");
     List<ProductDto> productFromThisSeller = (List<ProductDto>) request.getAttribute("productFromThisSeller");
     List<ProductDto> productOfSameType = (List<ProductDto>) request.getAttribute("productOfSameType");
-    int cnt = 0;
+    int cnt = 0, size = 0, i = 0;
     %>
 
     <head>
@@ -99,7 +99,7 @@ import = "java.util.List"
                                         </div>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 productinfo-style">
-                                        <h2><%=productDetails.getName()%></h2>
+                                        <h1><strong><%=productDetails.getName()%></strong></h1>
                                         <div class="rating-box">
                                             <div class="rating readonly-rating" data-score=<%=productDetails.getRatings()%>></div>
                                             <span><%=productDetails.getReview()%> Review(s)</span>
@@ -282,6 +282,93 @@ import = "java.util.List"
                     <div class="col-sm-2 col-xs-2">
                         <h4>
                         <a href="#">
+                        <i>Product From This Store</i>
+                        </a>
+                        </h4>
+                    </div>
+                    <div class="col-sm-offset-9 col-xs-offset-9 col-sm-1 col-xs- text-center">
+                        <h4>
+                        <a href="#"><i>View more</i></a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="row first-row">
+                            <div class="container-fluid">
+
+
+                                <%
+                                size = productFromThisSeller.size();
+                                if(size > 4) {
+                                    cnt = 4;
+                                }else {
+                                    cnt = size;
+                                }
+                                for(i=0; i<cnt; i++) {
+                                %>
+
+                                <a href="#">
+                                <div class="col-sm-3 col-xs-3 product-info text-center">
+                                    <img class="product-image" src=<%=productFromThisSeller.get(i).getImageUrl()%> alt="" />
+                                    <span>BDT <%=productFromThisSeller.get(i).getPrice()%></span>
+                                    <div class="rating-box">
+                                        <div class="rating readonly-rating" data-score=<%=productFromThisSeller.get(i).getRatings()%>></div>
+                                        <span><%=productFromThisSeller.get(i).getReview()%> Review(s)</span>
+                                    </div>
+                                </div>
+                                </a>
+
+
+                                <%
+                                }
+                                %>
+
+                            </div>
+                        </div>
+                        <div class="row second-row">
+                            <div class="container-fluid">
+
+                                <%
+                                if( (size - cnt) > 4) {
+                                    cnt = 4;
+                                }else {
+                                    cnt = size - cnt;
+                                }
+                                for(i = 0; i<cnt; i++) {
+                                %>
+
+                                <a href="#">
+                                <div class="col-sm-3 col-xs-3 product-info text-center">
+                                    <img class="product-image" src=<%=productFromThisSeller.get(i+4).getImageUrl()%> alt="" />
+                                    <span>BDT <%=productFromThisSeller.get(i+4).getPrice()%></span>
+                                    <div class="rating-box">
+                                        <div class="rating readonly-rating" data-score=<%=productFromThisSeller.get(i+4).getRatings()%>></div>
+                                        <span><%=productFromThisSeller.get(i+4).getReview()%> Review(s)</span>
+                                    </div>
+                                </div>
+                                </a>
+
+
+                                <%
+                                }
+                                %>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Products On Sale -->
+        <section id="products-on-sale" class="product-content">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-2 col-xs-2">
+                        <h4>
+                        <a href="#">
                         <i>Related Products</i>
                         </a>
                         </h4>
@@ -298,203 +385,66 @@ import = "java.util.List"
                     <div class="col-sm-12 col-xs-12">
                         <div class="row first-row">
                             <div class="container-fluid">
+
+                                <%
+                                size = productOfSameType.size();
+                                if(size > 4) {
+                                    cnt = 4;
+                                }else {
+                                    cnt = size;
+                                }
+                                for(i=0; i<cnt; i++) {
+                                %>
+
                                 <a href="#">
                                 <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product1.jpg" alt="" />
-                                    <span>US $4.50</span>
+                                    <img class="product-image" src=<%=productOfSameType.get(i).getImageUrl()%> alt="" />
+                                    <span>BDT <%=productOfSameType.get(i).getPrice()%></span>
                                     <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
+                                        <div class="rating readonly-rating" data-score=<%=productOfSameType.get(i).getRatings()%>></div>
+                                        <span><%=productOfSameType.get(i).getReview()%> Review(s)</span>
                                     </div>
                                 </div>
                                 </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product1.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product2.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product3.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
+
+
+                                <%
+                                }
+                                %>
+
+
+
                             </div>
                         </div>
                         <div class="row second-row">
                             <div class="container-fluid">
+
+                                <%
+                                if( (size - cnt) > 4) {
+                                    cnt = 4;
+                                }else {
+                                    cnt = size - cnt;
+                                }
+                                for(i = 0; i<cnt; i++) {
+                                %>
+
                                 <a href="#">
                                 <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product1.jpg" alt="" />
-                                    <span>US $4.50</span>
+                                    <img class="product-image" src=<%=productOfSameType.get(i+4).getImageUrl()%> alt="" />
+                                    <span>BDT <%=productOfSameType.get(i+4).getPrice()%></span>
                                     <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
+                                        <div class="rating readonly-rating" data-score=<%=productOfSameType.get(i+4).getRatings()%>></div>
+                                        <span><%=productOfSameType.get(i+4).getReview()%> Review(s)</span>
                                     </div>
                                 </div>
                                 </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product1.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product2.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product3.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Products On Sale -->
-        <section id="products-on-sale" class="product-content">
-            <div class="row">
-                <div class="container-fluid">
-                    <div class="col-sm-2 col-xs-2">
-                        <h4>
-                        <a href="#">
-                        <i>PRODUCTS ON SALE</i>
-                        </a>
-                        </h4>
-                    </div>
-                    <div class="col-sm-offset-9 col-xs-offset-9 col-sm-1 col-xs- text-center">
-                        <h4>
-                        <a href="#"><i>View more</i></a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="container-fluid">
-                    <div class="col-sm-12 col-xs-12">
-                        <div class="row first-row">
-                            <div class="container-fluid">
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product1.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product1.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product2.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product3.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row second-row">
-                            <div class="container-fluid">
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product1.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product1.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product2.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
-                                <a href="#">
-                                <div class="col-sm-3 col-xs-3 product-info text-center">
-                                    <img class="product-image" src="images/home/product3.jpg" alt="" />
-                                    <span>US $4.50</span>
-                                    <div class="rating-box">
-                                        <div class="rating readonly-rating" data-score="3"></div>
-                                        <span>3 Review(s)</span>
-                                    </div>
-                                </div>
-                                </a>
+
+
+                                <%
+                                }
+                                %>
+
+
                             </div>
                         </div>
                     </div>
