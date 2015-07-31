@@ -66,6 +66,7 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
     List<ProductDto> productFromThisSeller = (List<ProductDto>) request.getAttribute("productFromThisSeller");
     List<ProductDto> productOfSameType = (List<ProductDto>) request.getAttribute("productOfSameType");
     int cnt = 0, size = 0, i = 0;
+    double price = 0.0;
     
       out.write("\r\n");
       out.write("\r\n");
@@ -167,37 +168,28 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            <div class=\"rating readonly-rating\" data-score=");
       out.print(productDetails.getRatings());
       out.write("></div>\r\n");
-      out.write("                                            <span><h5 style=\"float: left;\">");
+      out.write("                                            <span>");
       out.print(productDetails.getReview());
-      out.write(" Review(s)</h5></span>\r\n");
+      out.write(" Review(s)</span>\r\n");
       out.write("                                        </div>\r\n");
-      out.write("                                        ");
-
-                                        if(productDetails.getSale() > 0) {
-                                        
       out.write("\r\n");
       out.write("                                        <div class=\"product-price\">\r\n");
-      out.write("                                            <span>BDT ");
+      out.write("                                            BDT <span class=\"product-price-sad\">");
       out.print(productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100));
       out.write("</span>\r\n");
+      out.write("                                            ");
+if(productDetails.getSale() > 0) {
+                                            
+      out.write("\r\n");
       out.write("                                            <del>BDT ");
       out.print(productDetails.getPrice());
       out.write("</del>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        ");
+      out.write("                                            ");
 
-                                        }else {
-                                        
+                                            }
+                                            
       out.write("\r\n");
-      out.write("                                        <div class=\"product-price\">\r\n");
-      out.write("                                            <span>BDT ");
-      out.print(productDetails.getPrice());
-      out.write("</span>\r\n");
       out.write("                                        </div>\r\n");
-      out.write("                                        ");
-
-                                        }
-                                        
       out.write("\r\n");
       out.write("                                        <table class=\"product-actions-single\">\r\n");
       out.write("                                            <tbody>\r\n");
@@ -205,9 +197,13 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                    <td>Quantity:</td>\r\n");
       out.write("                                                    <td>\r\n");
       out.write("                                                        <div class=\"numeric-input\">\r\n");
-      out.write("                                                            <input type=\"text\" value=\"1\">\r\n");
-      out.write("                                                            <span class=\"arrow-up\"><i class=\"icons fa fa-caret-up\"></i></span>\r\n");
-      out.write("                                                            <span class=\"arrow-down\"><i class=\"icons fa fa-caret-down\"></i></span>\r\n");
+      out.write("                                                            <input type=\"text\" value=\"1\" id=\"qnValue\" >\r\n");
+      out.write("                                                            <span class=\"arrow-up\" onClick=\"calcTotPos(");
+      out.print(productDetails.getAvailable());
+      out.write(")\"><i class=\"icons fa fa-caret-up\"></i></span>\r\n");
+      out.write("                                                            <span class=\"arrow-down\" onClick=\"calcTotNeg(");
+      out.print(productDetails.getAvailable());
+      out.write(")\"><i class=\"icons fa fa-caret-down\"></i></span>\r\n");
       out.write("                                                        </div>\r\n");
       out.write("                                                    </td>\r\n");
       out.write("                                                </tr>\r\n");
@@ -215,8 +211,8 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        </table>\r\n");
       out.write("                                        <div class=\"total-price\">\r\n");
       out.write("                                            <span class=\"total-price-text\">Total Price:</span>\r\n");
-      out.write("                                            <span class=\"total\">BDT ");
-      out.print(productDetails.getPrice() * 1);
+      out.write("                                            BDT <span class=\"total totPrice-sad\">");
+      out.print(productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100));
       out.write("</span>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"seller-info\">\r\n");
@@ -620,6 +616,7 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- Main JS -->\r\n");
       out.write("        <script src=\"js/main-script.js\"></script>\r\n");
       out.write("        <script src=\"js/custom.js\"></script>\r\n");
+      out.write("        <script src=\"js/additionalJS.js\"></script>\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
       out.write("\r\n");

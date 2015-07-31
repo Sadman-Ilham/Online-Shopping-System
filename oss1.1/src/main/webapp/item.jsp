@@ -14,6 +14,7 @@ import = "java.util.List"
     List<ProductDto> productFromThisSeller = (List<ProductDto>) request.getAttribute("productFromThisSeller");
     List<ProductDto> productOfSameType = (List<ProductDto>) request.getAttribute("productOfSameType");
     int cnt = 0, size = 0, i = 0;
+    double price = 0.0;
     %>
 
     <head>
@@ -98,31 +99,26 @@ import = "java.util.List"
                                             <div class="rating readonly-rating" data-score=<%=productDetails.getRatings()%>></div>
                                             <span><%=productDetails.getReview()%> Review(s)</span>
                                         </div>
-                                        <%
-                                        if(productDetails.getSale() > 0) {
-                                        %>
+
                                         <div class="product-price">
-                                            <span>BDT <%=productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100)%></span>
+                                            BDT <span class="product-price-sad"><%=productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100)%></span>
+                                            <%if(productDetails.getSale() > 0) {
+                                            %>
                                             <del>BDT <%=productDetails.getPrice()%></del>
+                                            <%
+                                            }
+                                            %>
                                         </div>
-                                        <%
-                                        }else {
-                                        %>
-                                        <div class="product-price">
-                                            <span>BDT <%=productDetails.getPrice()%></span>
-                                        </div>
-                                        <%
-                                        }
-                                        %>
+
                                         <table class="product-actions-single">
                                             <tbody>
                                                 <tr>
                                                     <td>Quantity:</td>
                                                     <td>
                                                         <div class="numeric-input">
-                                                            <input type="text" value="1">
-                                                            <span class="arrow-up"><i class="icons fa fa-caret-up"></i></span>
-                                                            <span class="arrow-down"><i class="icons fa fa-caret-down"></i></span>
+                                                            <input type="text" value="1" id="qnValue" >
+                                                            <span class="arrow-up" onClick="calcTotPos(<%=productDetails.getAvailable()%>)"><i class="icons fa fa-caret-up"></i></span>
+                                                            <span class="arrow-down" onClick="calcTotNeg(<%=productDetails.getAvailable()%>)"><i class="icons fa fa-caret-down"></i></span>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -130,7 +126,7 @@ import = "java.util.List"
                                         </table>
                                         <div class="total-price">
                                             <span class="total-price-text">Total Price:</span>
-                                            <span class="total">BDT <%=productDetails.getPrice() * 1%></span>
+                                            BDT <span class="total totPrice-sad"><%=productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100)%></span>
                                         </div>
                                         <div class="seller-info">
                                             <span>Selling by,</span>
@@ -465,6 +461,7 @@ import = "java.util.List"
         <!-- Main JS -->
         <script src="js/main-script.js"></script>
         <script src="js/custom.js"></script>
+        <script src="js/additionalJS.js"></script>
     </body>
 </html>
 
