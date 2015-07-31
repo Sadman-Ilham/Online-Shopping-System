@@ -168,19 +168,20 @@ public final class item_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                            <div class=\"rating readonly-rating\" data-score=");
       out.print(productDetails.getRatings());
       out.write("></div>\r\n");
-      out.write("                                            <span>");
+      out.write("                                            <span style=\"font-size: 14px;\">");
       out.print(productDetails.getReview());
       out.write(" Review(s)</span>\r\n");
       out.write("                                        </div>\r\n");
       out.write("\r\n");
       out.write("                                        <div class=\"product-price\">\r\n");
-      out.write("                                            BDT <span class=\"product-price-sad\">");
+      out.write("                                            <span>BDT</span> <span class=\"product-price-sad\">");
       out.print(productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100));
       out.write("</span>\r\n");
       out.write("                                            ");
 if(productDetails.getSale() > 0) {
                                             
       out.write("\r\n");
+      out.write("                                            <br>\r\n");
       out.write("                                            <del>BDT ");
       out.print(productDetails.getPrice());
       out.write("</del>\r\n");
@@ -197,7 +198,7 @@ if(productDetails.getSale() > 0) {
       out.write("                                                    <td>Quantity:</td>\r\n");
       out.write("                                                    <td>\r\n");
       out.write("                                                        <div class=\"numeric-input\">\r\n");
-      out.write("                                                            <input type=\"text\" value=\"1\" id=\"qnValue\" >\r\n");
+      out.write("                                                            <input type=\"text\" value=\"1\" id=\"qnValue\" readonly>\r\n");
       out.write("                                                            <span class=\"arrow-up\" onClick=\"calcTotPos(");
       out.print(productDetails.getAvailable());
       out.write(")\"><i class=\"icons fa fa-caret-up\"></i></span>\r\n");
@@ -207,11 +208,17 @@ if(productDetails.getSale() > 0) {
       out.write("                                                        </div>\r\n");
       out.write("                                                    </td>\r\n");
       out.write("                                                </tr>\r\n");
+      out.write("                                                <tr>\r\n");
+      out.write("                                                    <td><small>");
+      out.print(productDetails.getAvailable());
+      out.write(" product(s) available</small></td>\r\n");
+      out.write("                                                </tr>\r\n");
       out.write("                                            </tbody>\r\n");
       out.write("                                        </table>\r\n");
+      out.write("                                        <br>\r\n");
       out.write("                                        <div class=\"total-price\">\r\n");
       out.write("                                            <span class=\"total-price-text\">Total Price:</span>\r\n");
-      out.write("                                            BDT <span class=\"total totPrice-sad\">");
+      out.write("                                            <span class=\"total\">BDT</span> <span class=\"total totPrice-sad\">");
       out.print(productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100));
       out.write("</span>\r\n");
       out.write("                                        </div>\r\n");

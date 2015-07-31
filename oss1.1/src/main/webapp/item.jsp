@@ -97,13 +97,14 @@ import = "java.util.List"
                                         <h1><strong><%=productDetails.getName()%></strong></h1>
                                         <div class="rating-box">
                                             <div class="rating readonly-rating" data-score=<%=productDetails.getRatings()%>></div>
-                                            <span><%=productDetails.getReview()%> Review(s)</span>
+                                            <span style="font-size: 14px;"><%=productDetails.getReview()%> Review(s)</span>
                                         </div>
 
                                         <div class="product-price">
-                                            BDT <span class="product-price-sad"><%=productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100)%></span>
+                                            <span>BDT</span> <span class="product-price-sad"><%=productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100)%></span>
                                             <%if(productDetails.getSale() > 0) {
                                             %>
+                                            <br>
                                             <del>BDT <%=productDetails.getPrice()%></del>
                                             <%
                                             }
@@ -116,17 +117,21 @@ import = "java.util.List"
                                                     <td>Quantity:</td>
                                                     <td>
                                                         <div class="numeric-input">
-                                                            <input type="text" value="1" id="qnValue" >
+                                                            <input type="text" value="1" id="qnValue" readonly>
                                                             <span class="arrow-up" onClick="calcTotPos(<%=productDetails.getAvailable()%>)"><i class="icons fa fa-caret-up"></i></span>
                                                             <span class="arrow-down" onClick="calcTotNeg(<%=productDetails.getAvailable()%>)"><i class="icons fa fa-caret-down"></i></span>
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td><small><%=productDetails.getAvailable()%> product(s) available</small></td>
+                                                </tr>
                                             </tbody>
                                         </table>
+                                        <br>
                                         <div class="total-price">
                                             <span class="total-price-text">Total Price:</span>
-                                            BDT <span class="total totPrice-sad"><%=productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100)%></span>
+                                            <span class="total">BDT</span> <span class="total totPrice-sad"><%=productDetails.getPrice() - ((productDetails.getSale()*productDetails.getPrice())/100)%></span>
                                         </div>
                                         <div class="seller-info">
                                             <span>Selling by,</span>

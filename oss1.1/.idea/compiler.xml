@@ -22,7 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="oss1.1" />
+        <module name="oss" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

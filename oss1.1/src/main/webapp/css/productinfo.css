@@ -1114,7 +1114,7 @@ li.orange .parent-arrow:after {
 }
 
 .productinfo-style .product-price span {
-    display: block;
+    display: inline-block;
     font-size: 24px;
     margin: -10px 0 0;
     vertical-align: bottom;
@@ -1132,7 +1132,7 @@ li.orange .parent-arrow:after {
     vertical-align: middle !important;
 }
 
-.total-price .total {
+.total-price .total, .product-price .product-price-sad {
     color: #e74c3c;
     display: inline-block;
     font-size: 24px;

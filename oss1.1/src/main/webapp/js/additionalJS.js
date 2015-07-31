@@ -6,7 +6,7 @@ function calcTotPos(availability) {
         price = parseInt($('.product-price').find('.product-price-sad').text()) + parseInt($('.total-price').find('.totPrice-sad').text());
         $('.total-price').find('.totPrice-sad').text(price);
     }else {
-        $('.numeric-input').find('input').val(4);
+        $('.numeric-input').find('input').val(availability - 1);
     }
 }
 
