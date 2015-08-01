@@ -83,33 +83,72 @@ public class ProductService {
         }
     }
 
-    public List<ProductDto> getProductByCategory(String type, String genre) throws SQLException {
-        if(type.equals("cat")){
-            CategoryService categoryService = new CategoryService();
-            CategoryDto categoryDto = categoryService.getCategoryByName(genre);
+    public List<ProductDto> getProductByCategoryId(int id) throws SQLException {
+        return getProductByCategory(id);
+    }
 
-            if(categoryDto != null) {
-                query = "select * from product where product_categoryId = " + categoryDto.getId() + " order by product_uploadDateTime desc";
-                resultSet = dataRetrieve.getResultset(query);
-            }else{
-                resultSet = null;
-            }
-        }else if(type.equals("subCat")){
+    public List<ProductDto> getProductByCategoryName(String name, String key, String priceFrom, String priceTo, String quantityFrom, String quantityTo, String sortBy) throws SQLException {
+        getDynamicQuery(key, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
+        CategoryService categoryService = new CategoryService();
+        CategoryDto categoryDto = categoryService.getCategoryByName(name);
+
+        if(categoryDto != null) {
+            return getProductByCategory(categoryDto.getId());
+        }else {
             SubCategoryService subCategoryService = new SubCategoryService();
-            SubCategoryDto subCategoryDto = subCategoryService.getSubCategoryByName(genre);
-
-            if(subCategoryDto != null){
-                query = "select * from product where product_subCategoryId = " + subCategoryDto.getId() + " order by product_uploadDateTime desc";
-                resultSet = dataRetrieve.getResultset(query);
-            }else{
-                resultSet = null;
+            SubCategoryDto subCategoryDto = subCategoryService.getSubCategoryByName(name);
+            System.out.println(query);
+            if(subCategoryDto != null) {
+                return getProductBySubCategory(subCategoryDto.getId());
+            }else {
+                return null;
             }
         }
+    }
+
+    private List<ProductDto> getProductByCategory(int id) throws SQLException {
+        query = "select * from product where product_categoryId = " + id + query;
+        resultSet = dataRetrieve.getResultset(query);
 
         if (resultSet != null) {
             return fillTheList();
         }else {
             return null;
+        }
+    }
+
+    private List<ProductDto> getProductBySubCategory(int id) throws SQLException {
+        query = "select * from product where product_subCategoryId = " + id + query;
+        resultSet = dataRetrieve.getResultset(query);
+
+        if (resultSet != null) {
+            return fillTheList();
+        }else {
+            return null;
+        }
+    }
+
+    public void getDynamicQuery(String key, String priceFrom, String priceTo, String quantityFrom, String quantityTo, String sortBy) throws SQLException {
+        query = "";
+        if (key != null && !(key.equals(""))) {
+            query += " and product_name like '%" + key + "%'";
+        }
+        if (priceFrom != null && !(priceFrom.equals(""))) {
+            query += " and product_price>=" + priceFrom;
+        }
+        if (priceTo != null && !(priceTo.equals(""))) {
+            query += " and product_price<=" + priceTo;
+        }
+        if (quantityFrom != null && !(quantityFrom.equals(""))) {
+            query += " and product_available>=" + quantityFrom;
+        }
+        if (quantityTo != null && !(quantityTo.equals(""))) {
+            query += " and product_available<=" + quantityTo;
+        }
+        if (sortBy != null && !(sortBy.equals(""))) {
+            query += " order by product_" + sortBy + " desc";
+        } else {
+            query += " order by product_uploadDateTime desc";
         }
     }
 

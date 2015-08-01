@@ -40,11 +40,7 @@ public class ItemController extends HttpServlet {
             reviewList = reviewService.getReviewByProductId(productDetails.getId());
 
             productFromThisSeller = productService.getProductByStore(productDetails.getStoreId());
-
-            categoryService = new CategoryService();
-            categoryDto = categoryService.getCategoryById(productDetails.getCategoryId());
-
-            productOfSameType = productService.getProductByCategory("cat", categoryDto.getName());
+            productOfSameType = productService.getProductByCategoryId(productDetails.getCategoryId());
 
             request.setAttribute("productDetails", productDetails);
             request.setAttribute("reviewList", reviewList);

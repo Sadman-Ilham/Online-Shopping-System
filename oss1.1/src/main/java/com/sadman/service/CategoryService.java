@@ -39,7 +39,8 @@ public class CategoryService {
         query = "select * from category where category_name = '" + type + "'";
         resultSet = dataRetrieve.getResultset(query);
 
-        if(resultSet != null) {
+        if(resultSet.next()) {
+            resultSet.beforeFirst();
             return fillTheObject();
         }else {
             return null;

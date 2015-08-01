@@ -60,6 +60,7 @@
 }
 
 .product-header .btn-info {
+    float: right;
     padding: 4px 10px;
 }
 
@@ -107,10 +108,6 @@
     transition: border 0.2s linear 0s;
 }
 
-.price {
-    padding-right: 2.5%;
-}
-
 .quantity {
     padding-left: 2.5%;
 }
@@ -145,7 +142,6 @@
 }
 
 .product-name h3 {
-    line-height: 16px;
     margin-bottom: 5px;
     overflow: hidden;
     white-space: normal;
@@ -154,7 +150,8 @@
 }
 
 .product-name h3 a {
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: 600;
     color: #036;
 }
 
@@ -168,7 +165,7 @@
 }
 
 .infoprice {
-    padding-top: 4.7% !important;
+    padding-top: 4% !important;
     padding-left: 5% !important;
 }
 
@@ -236,6 +233,10 @@
     margin-bottom: 0px;
 }
 
+.search {
+    max-width: 100%;
+    width: 100%;
+}
 
 /*Media Query*/
 
@@ -244,10 +245,7 @@
         height: 100%;
         width: 100%;
     }
-    .search {
-        max-width: 70%;
-        width: 30%;
-    }
+
     .navcontainer span {
         font-size: 8px;
     }
@@ -258,10 +256,7 @@
         height: 100%;
         width: 100%;
     }
-    .search {
-        max-width: 70%;
-        width: 60%;
-    }
+
     .navcontainer span {
         font-size: 13px;
     }
@@ -272,10 +267,7 @@
         height: 150px;
         width: 150px;
     }
-    .search {
-        max-width: 70%;
-        width: 70%;
-    }
+
     .navcontainer span {
         font-size: 15px;
         font-weight: 700;
@@ -289,10 +281,7 @@
         height: 200px;
         width: 200px;
     }
-    .search {
-        max-width: 70%;
-        width: 70%;
-    }
+
     .navcontainer span {
         font-size: 16px;
         font-weight: 700;
