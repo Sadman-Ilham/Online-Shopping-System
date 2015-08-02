@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import com.sadman.dto.ProductDto;
+import com.sadman.dto.CategoryDto;
 import com.sadman.dto.SubCategoryDto;
 import java.util.List;
 
@@ -89,6 +90,8 @@ public final class category_jsp extends org.apache.jasper.runtime.HttpJspBase
 
         List<ProductDto> productList = (List<ProductDto>) request.getAttribute("productList");              //java code
         List<SubCategoryDto> subCategoryList = (List<SubCategoryDto>) request.getAttribute("subCategoryList");
+        CategoryDto parentCategory = (CategoryDto) request.getAttribute("parentCategory");
+        List<CategoryDto> categoryList = (List<CategoryDto>) request.getAttribute("categoryList");
         int cnt = 0;
         
       out.write("\r\n");
@@ -103,33 +106,83 @@ public final class category_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <span>Recent Categories</span>\r\n");
       out.write("                            <ul>\r\n");
       out.write("                                <li>\r\n");
-      out.write("                                    <a href=\"/oss/category?type=");
-      out.print(request.getParameter("type"));
-      out.write('"');
-      out.write('>');
-      out.print(request.getParameter("type"));
-      out.write("</a>\r\n");
+      out.write("                                    <a href=\"/oss/category?type=All\">All Categories</a>\r\n");
       out.write("                                    <ul>\r\n");
-      out.write("                                    ");
+      out.write("                                        ");
 
-                                    System.out.println(subCategoryList);
-                                    if(subCategoryList != null) {
-                                    for(SubCategoryDto subCategory : subCategoryList) {
-                                    
+                                        if(parentCategory != null) {
+                                        
       out.write("\r\n");
-      out.write("                                        <li>\r\n");
-      out.write("                                            <a href=\"/oss/category?type=");
+      out.write("                                        <li><a href=\"/oss/category?type=");
+      out.print(parentCategory.getName());
+      out.write('"');
+      out.write('>');
+      out.print(parentCategory.getName());
+      out.write("</a>\r\n");
+      out.write("                                            <ul>\r\n");
+      out.write("                                        ");
+
+                                        }
+                                                if(request.getParameter("type") != null && !request.getParameter("type").equals("All")) {
+                                        
+      out.write("\r\n");
+      out.write("                                                    <li>\r\n");
+      out.write("                                                        <a href=\"/oss/category?type=");
+      out.print(request.getParameter("type"));
+      out.write('"');
+      out.write('>');
+      out.print(request.getParameter("type"));
+      out.write("</a>\r\n");
+      out.write("                                                        <ul>\r\n");
+      out.write("                                                        ");
+
+                                                        if(subCategoryList != null) {
+                                                            for(SubCategoryDto subCategory : subCategoryList) {
+                                                            
+      out.write("\r\n");
+      out.write("                                                                <li>\r\n");
+      out.write("                                                                    <a href=\"/oss/category?type=");
       out.print(subCategory.getName());
       out.write('"');
       out.write('>');
       out.print(subCategory.getName());
       out.write("</a>\r\n");
-      out.write("                                        </li>\r\n");
-      out.write("                                    ");
+      out.write("                                                                </li>\r\n");
+      out.write("                                                            ");
 
-                                    }
-                                    }
-                                    
+                                                            }
+                                                        }
+                                                        
+      out.write("\r\n");
+      out.write("                                                        </ul>\r\n");
+      out.write("                                                    </li>\r\n");
+      out.write("                                        ");
+
+                                                }else {
+                                                    for(CategoryDto category : categoryList) {
+                                        
+      out.write("\r\n");
+      out.write("                                                        <li>\r\n");
+      out.write("                                                            <a href=\"/oss/category?type=");
+      out.print(category.getName());
+      out.write('"');
+      out.write('>');
+      out.print(category.getName());
+      out.write("</a>\r\n");
+      out.write("                                                        </li>\r\n");
+      out.write("                                        ");
+
+                                                    }
+                                                }
+                                        if(parentCategory != null) {
+                                        
+      out.write("\r\n");
+      out.write("                                            </ul>\r\n");
+      out.write("                                        </li>\r\n");
+      out.write("                                        ");
+
+                                        }
+                                        
       out.write("\r\n");
       out.write("                                    </ul>\r\n");
       out.write("                                </li>\r\n");
@@ -144,10 +197,50 @@ public final class category_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\r\n");
       out.write("                                    <ol class=\"breadcrumb\">\r\n");
       out.write("                                        <li><a href=\"/oss\">Home</a></li>\r\n");
-      out.write("                                        <li><a href=\"#\">");
+      out.write("                                        ");
+
+                                        if(request.getParameter("type") == null || request.getParameter("type").equals("")) {
+                                        
+      out.write("\r\n");
+      out.write("                                        <li><a href=\"/oss/category?type=All\">All Categories</a></li>\r\n");
+      out.write("                                        ");
+
+                                        }else {
+                                            if(parentCategory != null) {
+                                            
+      out.write("\r\n");
+      out.write("                                            <li><a href=\"/oss/category?type=");
+      out.print(parentCategory.getName());
+      out.write('"');
+      out.write('>');
+      out.print(parentCategory.getName());
+      out.write("</a></li>\r\n");
+      out.write("                                            ");
+
+                                            }
+                                            if(request.getParameter("type").equals("All")) {
+                                            
+      out.write("\r\n");
+      out.write("                                                <li><a href=\"/oss/category?type=");
+      out.print(request.getParameter("type"));
+      out.write("\">All Categories</a></li>\r\n");
+      out.write("                                            ");
+
+                                            }else {
+                                            
+      out.write("\r\n");
+      out.write("                                                <li><a href=\"/oss/category?type=");
+      out.print(request.getParameter("type"));
+      out.write('"');
+      out.write('>');
       out.print(request.getParameter("type"));
       out.write("</a></li>\r\n");
-      out.write("                                        <li class=\"active\">Data</li>\r\n");
+      out.write("                                            ");
+
+                                            }
+                                        }
+                                        
+      out.write("\r\n");
       out.write("                                    </ol>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
@@ -155,7 +248,7 @@ public final class category_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"row\">\r\n");
       out.write("                            <div class=\"container-fluid\">\r\n");
       out.write("                                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 product-header\">\r\n");
-      out.write("                                    <form action=\"/oss/category\">\r\n");
+      out.write("                                    <form action=\"/oss/category\" class=\"searchForm\">\r\n");
       out.write("                                    <input type=\"hidden\" name=\"type\" value=");
       out.print(request.getParameter("type"));
       out.write(">\r\n");
@@ -164,7 +257,7 @@ public final class category_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <input type=\"text\" name=\"key\" class=\"search\" placeholder=\"\" >\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"form-group form-inline\">\r\n");
-      out.write("                                        <label>Price</label>\r\n");
+      out.write("                                        <label class=\"price\">Price</label>\r\n");
       out.write("                                        <input class=\"to\" name=\"priceTo\" type=\"text\" placeholder=\"\" >\r\n");
       out.write("                                        <label >-</label>\r\n");
       out.write("                                        <input class=\"to\" name=\"priceFrom\" type=\"text\" placeholder=\"\" >\r\n");
@@ -177,9 +270,10 @@ public final class category_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </form>\r\n");
       out.write("                                    <div class=\"form-group form-inline\">\r\n");
       out.write("                                        <label class=\"sort\">Sort By</label>\r\n");
-      out.write("                                        <li><a href=\"#\">best rating <i class=\"fa fa-caret-down\"></i><span class=\"icon-text\"></span></a></li>\r\n");
-      out.write("                                        <li><a href=\"#\">best seller <i class=\"fa fa-caret-down\"></i><span class=\"icon-text\"></span></a></li>\r\n");
-      out.write("                                        <li><a href=\"#\">price <i class=\"fa fa-caret-down\"></i><span class=\"icon-text\"></span></a></li>\r\n");
+      out.write("                                        <li><a class=\"sortOpt\" href=\"#\">View&nbsp;<i class=\"fa fa-caret-down\"></i><span class=\"icon-text\"></span></a></li>\r\n");
+      out.write("                                        <li><a class=\"sortOpt\" href=\"#\">Ratings&nbsp;<i class=\"fa fa-caret-down\"></i><span class=\"icon-text\"></span></a></li>\r\n");
+      out.write("                                        <li><a class=\"sortOpt\" href=\"#\">Order&nbsp;<i class=\"fa fa-caret-down\"></i><span class=\"icon-text\"></span></a></li>\r\n");
+      out.write("                                        <li><a class=\"sortOpt\" href=\"#\">Price&nbsp;<i class=\"fa fa-caret-down\"></i><span class=\"icon-text\"></span></a></li>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");

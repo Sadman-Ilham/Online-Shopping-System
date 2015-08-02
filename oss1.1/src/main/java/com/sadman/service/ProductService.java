@@ -87,6 +87,26 @@ public class ProductService {
         return getProductByCategory(id);
     }
 
+    public List<ProductDto> getProductByAllCategory(String key, String priceFrom, String priceTo, String quantityFrom, String quantityTo, String sortBy) throws SQLException {
+        getDynamicQuery(key, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
+        if(query != null && !query.equals("")) {
+            if(query.substring(1,4).equals("and")) {
+                query = " where" + query.substring(4);
+            }
+            query = "select * from product" + query;
+        }else {
+            query = "select * from product";
+        }
+        System.out.println(query);
+        resultSet = dataRetrieve.getResultset(query);
+
+        if (resultSet != null) {
+            return fillTheList();
+        }else {
+            return null;
+        }
+    }
+
     public List<ProductDto> getProductByCategoryName(String name, String key, String priceFrom, String priceTo, String quantityFrom, String quantityTo, String sortBy) throws SQLException {
         getDynamicQuery(key, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
         CategoryService categoryService = new CategoryService();

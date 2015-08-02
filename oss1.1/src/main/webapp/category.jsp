@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"
 import = "com.sadman.dto.ProductDto"
+import = "com.sadman.dto.CategoryDto"
 import = "com.sadman.dto.SubCategoryDto"
 import = "java.util.List"
 %>
@@ -35,6 +36,8 @@ import = "java.util.List"
         <%
         List<ProductDto> productList = (List<ProductDto>) request.getAttribute("productList");              //java code
         List<SubCategoryDto> subCategoryList = (List<SubCategoryDto>) request.getAttribute("subCategoryList");
+        CategoryDto parentCategory = (CategoryDto) request.getAttribute("parentCategory");
+        List<CategoryDto> categoryList = (List<CategoryDto>) request.getAttribute("categoryList");
         int cnt = 0;
         %>
 
@@ -48,20 +51,50 @@ import = "java.util.List"
                             <span>Recent Categories</span>
                             <ul>
                                 <li>
-                                    <a href="/oss/category?type=<%=request.getParameter("type")%>"><%=request.getParameter("type")%></a>
+                                    <a href="/oss/category?type=All">All Categories</a>
                                     <ul>
-                                    <%
-                                    System.out.println(subCategoryList);
-                                    if(subCategoryList != null) {
-                                    for(SubCategoryDto subCategory : subCategoryList) {
-                                    %>
-                                        <li>
-                                            <a href="/oss/category?type=<%=subCategory.getName()%>"><%=subCategory.getName()%></a>
+                                        <%
+                                        if(parentCategory != null) {
+                                        %>
+                                        <li><a href="/oss/category?type=<%=parentCategory.getName()%>"><%=parentCategory.getName()%></a>
+                                            <ul>
+                                        <%
+                                        }
+                                                if(request.getParameter("type") != null && !request.getParameter("type").equals("All")) {
+                                        %>
+                                                    <li>
+                                                        <a href="/oss/category?type=<%=request.getParameter("type")%>"><%=request.getParameter("type")%></a>
+                                                        <ul>
+                                                        <%
+                                                        if(subCategoryList != null) {
+                                                            for(SubCategoryDto subCategory : subCategoryList) {
+                                                            %>
+                                                                <li>
+                                                                    <a href="/oss/category?type=<%=subCategory.getName()%>"><%=subCategory.getName()%></a>
+                                                                </li>
+                                                            <%
+                                                            }
+                                                        }
+                                                        %>
+                                                        </ul>
+                                                    </li>
+                                        <%
+                                                }else {
+                                                    for(CategoryDto category : categoryList) {
+                                        %>
+                                                        <li>
+                                                            <a href="/oss/category?type=<%=category.getName()%>"><%=category.getName()%></a>
+                                                        </li>
+                                        <%
+                                                    }
+                                                }
+                                        if(parentCategory != null) {
+                                        %>
+                                            </ul>
                                         </li>
-                                    <%
-                                    }
-                                    }
-                                    %>
+                                        <%
+                                        }
+                                        %>
                                     </ul>
                                 </li>
                             </ul>
@@ -75,7 +108,28 @@ import = "java.util.List"
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <ol class="breadcrumb">
                                         <li><a href="/oss">Home</a></li>
-                                        <li><a href="#"><%=request.getParameter("type")%></a></li>
+                                        <%
+                                        if(request.getParameter("type") == null || request.getParameter("type").equals("")) {
+                                        %>
+                                        <li><a href="/oss/category?type=All">All Categories</a></li>
+                                        <%
+                                        }else {
+                                            if(parentCategory != null) {
+                                            %>
+                                            <li><a href="/oss/category?type=<%=parentCategory.getName()%>"><%=parentCategory.getName()%></a></li>
+                                            <%
+                                            }
+                                            if(request.getParameter("type").equals("All")) {
+                                            %>
+                                                <li><a href="/oss/category?type=<%=request.getParameter("type")%>">All Categories</a></li>
+                                            <%
+                                            }else {
+                                            %>
+                                                <li><a href="/oss/category?type=<%=request.getParameter("type")%>"><%=request.getParameter("type")%></a></li>
+                                            <%
+                                            }
+                                        }
+                                        %>
                                     </ol>
                                 </div>
                             </div>
@@ -83,14 +137,14 @@ import = "java.util.List"
                         <div class="row">
                             <div class="container-fluid">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-header">
-                                    <form action="/oss/category">
+                                    <form action="/oss/category" class="searchForm">
                                     <input type="hidden" name="type" value=<%=request.getParameter("type")%>>
                                     <div class="form-group">
                                         <label >Keyword</label>
                                         <input type="text" name="key" class="search" placeholder="" >
                                     </div>
                                     <div class="form-group form-inline">
-                                        <label>Price</label>
+                                        <label class="price">Price</label>
                                         <input class="to" name="priceTo" type="text" placeholder="" >
                                         <label >-</label>
                                         <input class="to" name="priceFrom" type="text" placeholder="" >
@@ -103,9 +157,10 @@ import = "java.util.List"
                                     </form>
                                     <div class="form-group form-inline">
                                         <label class="sort">Sort By</label>
-                                        <li><a href="#">best rating <i class="fa fa-caret-down"></i><span class="icon-text"></span></a></li>
-                                        <li><a href="#">best seller <i class="fa fa-caret-down"></i><span class="icon-text"></span></a></li>
-                                        <li><a href="#">price <i class="fa fa-caret-down"></i><span class="icon-text"></span></a></li>
+                                        <li><a class="sortOpt" href="#">View&nbsp;<i class="fa fa-caret-down"></i><span class="icon-text"></span></a></li>
+                                        <li><a class="sortOpt" href="#">Ratings&nbsp;<i class="fa fa-caret-down"></i><span class="icon-text"></span></a></li>
+                                        <li><a class="sortOpt" href="#">Order&nbsp;<i class="fa fa-caret-down"></i><span class="icon-text"></span></a></li>
+                                        <li><a class="sortOpt" href="#">Price&nbsp;<i class="fa fa-caret-down"></i><span class="icon-text"></span></a></li>
                                     </div>
                                 </div>
                             </div>

@@ -20,10 +20,12 @@ import java.util.List;
  */
 public class CategoryController extends HttpServlet {
 
-    private String categoryType, keyword, priceFrom, priceTo, quantityFrom, quantityTo, sortBy;
+    private String categoryType = null, keyword = null, priceFrom = null, priceTo = null, quantityFrom = null, quantityTo = null, sortBy = null;
     private List<ProductDto> productList;
-    private CategoryDto categoryDto;
+    private CategoryDto categoryDto, parentCategory;
+    private SubCategoryDto subCategoryDto;
     private List<SubCategoryDto> subCategoryList;
+    private List<CategoryDto> categoryList;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
@@ -37,21 +39,35 @@ public class CategoryController extends HttpServlet {
 
 
             ProductService productService = new ProductService();
-            productList = productService.getProductByCategoryName(categoryType, keyword, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
+            if( (categoryType == null) || (categoryType.equals("All")) ) {
+                productList = productService.getProductByAllCategory(keyword, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
 
-            CategoryService categoryService = new CategoryService();
-            categoryDto = categoryService.getCategoryByName(categoryType);
-
-            if(categoryDto != null) {
-                SubCategoryService subCategoryService = new SubCategoryService();
-                subCategoryList = subCategoryService.getSubCategoryByCategoryId(categoryDto.getId());
-            }else {
+                CategoryService categoryService = new CategoryService();
+                categoryList = categoryService.getAllCategory();
+                parentCategory = null;
                 subCategoryList = null;
+            }else {
+                productList = productService.getProductByCategoryName(categoryType, keyword, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
+
+                CategoryService categoryService = new CategoryService();
+                categoryDto = categoryService.getCategoryByName(categoryType);
+
+                SubCategoryService subCategoryService = new SubCategoryService();
+                if(categoryDto != null) {
+                    parentCategory = null;
+                    subCategoryList = subCategoryService.getSubCategoryByCategoryId(categoryDto.getId());
+                }else {
+                    subCategoryDto = subCategoryService.getSubCategoryByName(categoryType);
+                    parentCategory = categoryService.getCategoryById(subCategoryDto.getCategoryId());
+                    subCategoryList = null;
+                }
             }
 
             request.setAttribute("productList", productList);
             request.setAttribute("subCategoryList", subCategoryList);
-            System.out.println("passed");
+            request.setAttribute("parentCategory", parentCategory);
+            request.setAttribute("categoryList", categoryList);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("category.jsp");
             dispatcher.forward(request, response);
         }catch (Exception e){
