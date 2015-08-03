@@ -98,7 +98,7 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"modal-content\">\r\n");
       out.write("            <div class=\"modal-body\">\r\n");
       out.write("                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\r\n");
-      out.write("                <h3 class=\"text-center\">Login or <a href=\"#\">Sign up</a></h3>\r\n");
+      out.write("                <h3 class=\"text-center\">Login or <a href=\"/oss/signup\">Sign up</a></h3>\r\n");
       out.write("                <div class=\"row\">\r\n");
       out.write("                    <div class=\"col-xs-4\" >\r\n");
       out.write("                        <a href=\"#\" class=\"btn btn-lg btn-block btn-facebook\">Facebook</a>\r\n");

@@ -3,9 +3,14 @@ package com.sadman.service;
 import com.sadman.database.DataRetrieve;
 import com.sadman.database.DatabaseConnection;
 import com.sadman.dto.CustomerDetailsDto;
+import com.sadman.dto.CustomerDto;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by Sadman on 7/27/2015.
@@ -16,6 +21,7 @@ public class CustomerService {
     private DataRetrieve dataRetrieve;
     private ResultSet resultSet;
     private String query;
+    private Statement statement;
 
     public CustomerService() throws SQLException {
         databaseConnection = DatabaseConnection.createConnection();
@@ -50,4 +56,35 @@ public class CustomerService {
         return customerDetailsDto;
     }
 
+    public void insertNewCustomer(String firstName, String lastName, String email, String password, String gender, String dob, String phone, String address) throws SQLException {
+        query = "insert into customer (customer_email, customer_password) values ('" + email + "', '" + password + "')";
+        statement = databaseConnection.getStatement();
+        statement.executeUpdate(query);
+
+        CustomerDto customerDto = getRecentCustomer(email, password);
+        insertNewCustomerDetails(customerDto.getId(), firstName, lastName, gender, dob, phone, address);
+    }
+
+    private void insertNewCustomerDetails(int id, String firstName, String lastName, String gender, String dob, String phone, String address) throws SQLException {
+        DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        Date date = new Date();
+
+        query = "insert into customerdetails (customerdetails_customerId, customerdetails_firstName, customerdetails_lastName, customerdetails_gender, customerdetails_birthDate, customerdetails_phone, customerdetails_address, customerdetails_registrationDate) values (" + id + ", '" + firstName + "', '" + lastName + "', '" + gender + "', '" + dob + "', '" + phone + "', '" + address + "', '" + dateFormat.format(date).toString() + "')";
+        statement = databaseConnection.getStatement();
+        statement.executeUpdate(query);
+    }
+
+    private CustomerDto getRecentCustomer(String email, String password) throws SQLException {
+        query = "select * from customer where customer_email = '" + email + "' and customer_password = '" + password + "'";
+        resultSet = dataRetrieve.getResultset(query);
+
+        CustomerDto customerDto = new CustomerDto();
+        while(resultSet.next()) {
+            customerDto.setId(resultSet.getInt("customer_id"));
+            customerDto.setEmail(resultSet.getString("customer_email"));
+            customerDto.setPassword(resultSet.getString("customer_password"));
+        }
+
+        return customerDto;
+    }
 }

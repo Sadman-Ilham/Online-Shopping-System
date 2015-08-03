@@ -88,6 +88,13 @@ html, body {
 }
 
 
+/*Checkout modal*/
+
+#checkout-modal .form-control {
+    display: inline-block !important;
+}
+
+
 /*cart-product*/
 
 #cart-product {
@@ -113,7 +120,7 @@ html, body {
     /*padding-left: 1% !important;*/
 }
 
-.product-price .product-quantity span,.product-price .total-price span {
+.product-price .product-quantity span, .product-price .total-price span {
     color: #596067;
     font-size: 1.5em;
     font-weight: 700;
@@ -122,9 +129,10 @@ html, body {
     vertical-align: middle !important;
 }
 
-.product-price .total{
+.product-price .total {
     color: #E74C3C !important;
 }
+
 
 /*Tab Style*/
 
@@ -508,11 +516,28 @@ html, body {
     }
 }
 
+@media only screen and (min-width: 300px) {
+    /*Code modal*/
+    .code-text {
+        width: 60% !important;
+    }
+    .checkout-modal-btn {
+        width: 35% !important;
+    }
+}
+
 @media only screen and (min-width: 480px) {
     /*Product Image*/
     .productlist-image img {
         height: 100%;
         width: 100%;
+    }
+    /*Code modal*/
+    .code-text {
+        width: 75% !important;
+    }
+    .checkout-modal-btn {
+        width: 22% !important;
     }
     /*Footer*/
     .companyinfo h2 {
@@ -538,6 +563,13 @@ html, body {
     /*navbar textarea*/
     .navbar-form .input-group > .form-control {
         width: 100px;
+    }
+    /*Code modal*/
+    .code-text {
+        width: 75% !important;
+    }
+    .checkout-modal-btn {
+        width: 22% !important;
     }
     /*Product Image*/
     .productlist-image img {
@@ -569,6 +601,13 @@ html, body {
     .navbar-form .input-group > .form-control {
         width: 320px;
     }
+    /*Code modal*/
+    .code-text {
+        width: 75% !important;
+    }
+    .checkout-modal-btn {
+        width: 22% !important;
+    }
     /*Product Image*/
     .productlist-image img {
         height: 170px;
@@ -598,6 +637,13 @@ html, body {
 @media only screen and (min-width: 1200px) {
     .navbar-form .input-group > .form-control {
         width: 520px;
+    }
+    /*Code modal*/
+    .code-text {
+        width: 75% !important;
+    }
+    .checkout-modal-btn {
+        width: 22% !important;
     }
     /*Product Image*/
     .productlist-image img {

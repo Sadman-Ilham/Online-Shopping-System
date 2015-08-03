@@ -46,7 +46,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 class="text-center">Login or <a href="#">Sign up</a></h3>
+                <h3 class="text-center">Login or <a href="/oss/signup">Sign up</a></h3>
                 <div class="row">
                     <div class="col-xs-4" >
                         <a href="#" class="btn btn-lg btn-block btn-facebook">Facebook</a>

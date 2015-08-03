@@ -1,0 +1,143 @@
+html {
+    overflow-y: scroll;
+}
+
+html, body {
+    padding-top: 28px;
+    background: #EEEEEE;
+}
+
+.form-group {
+    margin-bottom: 10px !important;
+}
+
+textarea {
+    resize: none;
+}
+
+select {
+    padding: 3px;
+    font-size: 15px;
+    height: 30px;
+}
+
+
+/*Navbar*/
+
+.icon-bar {
+    background-color: #777;
+}
+
+.navbar-trans {
+    background-color: #fff;
+    color: #fff;
+}
+
+.shop-menu>li>a {
+    display: inline-block;
+    margin: 5px 7px;
+    padding: 0px 3px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #777;
+}
+
+.shop-menu>li>a>i {
+    vertical-align: middle;
+    line-height: 45px;
+}
+
+.shop-menu>li>a:hover {
+    color: red;
+    transition: all 0.9s ease 0s;
+    -moz-transition: all 0.9s ease 0s;
+    -webkit-transition: all 0.9s ease 0s;
+    -o-transition: all 0.9s ease 0s;
+}
+
+.badge {
+    background: red;
+}
+
+
+/*feedback*/
+
+#feedback {
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-bottom: 2.8%;
+    background-color: #fff;
+}
+
+.text-style {
+    margin: 10% 0;
+}
+
+.text-style span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.rating span {
+    font-weight: 700;
+}
+
+.rating span i {
+    padding-left: 4%;
+}
+
+.rating span i img {
+    padding-bottom: 1%;
+}
+
+.review-form {
+    padding-top: 1%;
+}
+
+.skip a {
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+
+/*************************
+*******Footer*************
+**************************/
+
+#footer {
+    background: #F0F0E9;
+    margin: 0 0%;
+}
+
+.footer-bottom {
+    background: #D6D6D0;
+    padding-top: 10px;
+}
+
+
+/*media query*/
+
+@media only screen and (min-width: 300px) {}
+
+@media only screen and (min-width: 380px) {}
+
+@media only screen and (min-width: 520px) {}
+
+@media only screen and (min-width: 768px) {
+    /*navbar textarea*/
+    .navbar-form .input-group > .form-control {
+        width: 100px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar-form .input-group > .form-control {
+        width: 320px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .navbar-form .input-group > .form-control {
+        width: 520px;
+    }
+}

@@ -10,8 +10,10 @@ com\sadman\service\SubCategoryService.class
 com\sadman\dto\SubCategoryDto.class
 com\sadman\service\CustomerService.class
 com\sadman\service\CategoryService.class
+com\sadman\dto\CustomerDto.class
 com\sadman\dto\StoreDetailsDto.class
 com\sadman\controller\CategoryController.class
+com\sadman\controller\SignupController.class
 com\sadman\controller\ItemController.class
 com\sadman\service\ProductService.class
 com\sadman\dto\ReviewDto.class

@@ -10,6 +10,8 @@
         <welcome-file>index</welcome-file>
     </welcome-file-list>
 
+    <!--servlet files-->
+
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>com.sadman.controller.IndexController</servlet-class>
@@ -35,6 +37,27 @@
     <servlet-mapping>
         <servlet-name>item</servlet-name>
         <url-pattern>/item</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>signingup</servlet-name>
+        <servlet-class>com.sadman.controller.SignupController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>signingup</servlet-name>
+        <url-pattern>/signingup</url-pattern>
+    </servlet-mapping>
+
+
+    <!--jsp files-->
+
+    <servlet>
+        <servlet-name>signup</servlet-name>
+        <jsp-file>/signup.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>signup</servlet-name>
+        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
 
 </web-app>
