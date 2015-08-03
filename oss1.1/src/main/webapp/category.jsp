@@ -145,13 +145,13 @@ import = "java.util.List"
                                     </div>
                                     <div class="form-group form-inline">
                                         <label class="price">Price</label>
-                                        <input class="to" name="priceTo" type="text" placeholder="" >
-                                        <label >-</label>
                                         <input class="to" name="priceFrom" type="text" placeholder="" >
-                                        <label class="quantity">Quantity</label>
-                                        <input class="to" name="quantityTo" type="text" placeholder="" >
                                         <label >-</label>
+                                        <input class="to" name="priceTo" type="text" placeholder="" >
+                                        <label class="quantity">Quantity</label>
                                         <input class="to" name="quantityFrom" type="text" placeholder="" >
+                                        <label >-</label>
+                                        <input class="to" name="quantityTo" type="text" placeholder="" >
                                         <button type="submit" class="btn btn-info btn-sm">Search</button>
                                     </div>
                                     </form>

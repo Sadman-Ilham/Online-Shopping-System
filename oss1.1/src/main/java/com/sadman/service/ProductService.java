@@ -87,7 +87,7 @@ public class ProductService {
         return getProductByCategory(id);
     }
 
-    public List<ProductDto> getProductByAllCategory(String key, String priceFrom, String priceTo, String quantityFrom, String quantityTo, String sortBy) throws SQLException {
+    public List<ProductDto> getProductByAllCategory(String key, double priceFrom, double priceTo, int quantityFrom, int quantityTo, String sortBy) throws SQLException {
         getDynamicQuery(key, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
         if(query != null && !query.equals("")) {
             if(query.substring(1,4).equals("and")) {
@@ -107,7 +107,7 @@ public class ProductService {
         }
     }
 
-    public List<ProductDto> getProductByCategoryName(String name, String key, String priceFrom, String priceTo, String quantityFrom, String quantityTo, String sortBy) throws SQLException {
+    public List<ProductDto> getProductByCategoryName(String name, String key, double priceFrom, double priceTo, int quantityFrom, int quantityTo, String sortBy) throws SQLException {
         getDynamicQuery(key, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
         CategoryService categoryService = new CategoryService();
         CategoryDto categoryDto = categoryService.getCategoryByName(name);
@@ -148,21 +148,21 @@ public class ProductService {
         }
     }
 
-    public void getDynamicQuery(String key, String priceFrom, String priceTo, String quantityFrom, String quantityTo, String sortBy) throws SQLException {
+    public void getDynamicQuery(String key, double priceFrom, double priceTo, int quantityFrom, int quantityTo, String sortBy) throws SQLException {
         query = "";
         if (key != null && !(key.equals(""))) {
             query += " and product_name like '%" + key + "%'";
         }
-        if (priceFrom != null && !(priceFrom.equals(""))) {
+        if (priceFrom != -1) {
             query += " and product_price>=" + priceFrom;
         }
-        if (priceTo != null && !(priceTo.equals(""))) {
+        if (priceTo != -1) {
             query += " and product_price<=" + priceTo;
         }
-        if (quantityFrom != null && !(quantityFrom.equals(""))) {
+        if (quantityFrom != -1) {
             query += " and product_available>=" + quantityFrom;
         }
-        if (quantityTo != null && !(quantityTo.equals(""))) {
+        if (quantityTo != -1) {
             query += " and product_available<=" + quantityTo;
         }
         if (sortBy != null && !(sortBy.equals(""))) {

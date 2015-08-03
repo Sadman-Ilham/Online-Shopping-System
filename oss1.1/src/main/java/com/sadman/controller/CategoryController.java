@@ -20,7 +20,9 @@ import java.util.List;
  */
 public class CategoryController extends HttpServlet {
 
-    private String categoryType = null, keyword = null, priceFrom = null, priceTo = null, quantityFrom = null, quantityTo = null, sortBy = null;
+    private String categoryType = null, keyword = null, sortBy = null;
+    private double priceFrom, priceTo;
+    private int quantityFrom, quantityTo;
     private List<ProductDto> productList;
     private CategoryDto categoryDto, parentCategory;
     private SubCategoryDto subCategoryDto;
@@ -31,15 +33,36 @@ public class CategoryController extends HttpServlet {
         try{
             categoryType = request.getParameter("type");
             keyword = request.getParameter("key");
-            priceFrom = request.getParameter("priceFrom");
-            priceTo = request.getParameter("priceTo");
-            quantityFrom = request.getParameter("quantityFrom");
-            quantityTo = request.getParameter("quantityTo");
+
+            if(request.getParameter("priceFrom") == null || request.getParameter("priceFrom").equals("")){
+                priceFrom = -1;
+            }else {
+                priceFrom = Double.parseDouble(request.getParameter("priceFrom"));
+            }
+
+            if(request.getParameter("priceTo") == null || request.getParameter("priceTo").equals("")){
+                priceTo = -1;
+            }else {
+                priceTo = Double.parseDouble(request.getParameter("priceTo"));
+            }
+
+            if(request.getParameter("quantityFrom") == null || request.getParameter("quantityFrom").equals("")) {
+                quantityFrom = -1;
+            }else {
+                quantityFrom = Integer.parseInt(request.getParameter("quantityFrom"));
+            }
+
+            if(request.getParameter("quantityTo") == null || request.getParameter("quantityTo").equals("")) {
+                quantityTo = -1;
+            }else {
+                quantityTo = Integer.parseInt(request.getParameter("quantityTo"));
+            }
+
             sortBy = request.getParameter("sortBy");
 
 
             ProductService productService = new ProductService();
-            if( (categoryType == null) || (categoryType.equals("All")) ) {
+            if( (categoryType == null) || (categoryType.equals("All")) || (categoryType.equals("")) ) {
                 productList = productService.getProductByAllCategory(keyword, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
 
                 CategoryService categoryService = new CategoryService();
