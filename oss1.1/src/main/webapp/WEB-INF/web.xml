@@ -57,6 +57,15 @@
         <url-pattern>/logincontroller</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>logoutcontroller</servlet-name>
+        <servlet-class>com.sadman.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutcontroller</servlet-name>
+        <url-pattern>/logoutcontroller</url-pattern>
+    </servlet-mapping>
+
 
     <!--jsp files-->
 

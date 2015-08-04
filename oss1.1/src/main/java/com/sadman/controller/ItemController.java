@@ -31,6 +31,12 @@ public class ItemController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if(request.getQueryString() != null) {
+                request.getSession().setAttribute("lastVisitedPage", request.getRequestURL().append('?').append(request.getQueryString()));
+            }else {
+                request.getSession().setAttribute("lastVisitedPage", request.getRequestURL());
+            }
+
             pid = Integer.parseInt(request.getParameter("pid"));
 
             productService = new ProductService();

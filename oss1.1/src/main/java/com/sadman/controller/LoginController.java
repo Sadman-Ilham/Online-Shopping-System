@@ -31,7 +31,11 @@ public class LoginController extends HttpServlet {
                 request.getSession().setAttribute("customerDetailsDto", customerDetailsDto);
                 System.out.println(customerDetailsDto.getFirstName() + " :: Login Successful!");
             }
-            response.sendRedirect("/oss");
+            if(request.getSession().getAttribute("lastVisitedPage") != null) {
+                response.sendRedirect(request.getSession().getAttribute("lastVisitedPage").toString());
+            }else {
+                response.sendRedirect("/oss");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

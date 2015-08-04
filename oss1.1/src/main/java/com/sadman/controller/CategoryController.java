@@ -31,6 +31,12 @@ public class CategoryController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            if(request.getQueryString() != null) {
+                request.getSession().setAttribute("lastVisitedPage", request.getRequestURL().append('?').append(request.getQueryString()));
+            }else {
+                request.getSession().setAttribute("lastVisitedPage", request.getRequestURL());
+            }
+
             categoryType = request.getParameter("type");
             keyword = request.getParameter("key");
 
@@ -62,7 +68,7 @@ public class CategoryController extends HttpServlet {
 
 
             ProductService productService = new ProductService();
-            if( (categoryType == null) || (categoryType.equals("All")) || (categoryType.equals("")) ) {
+            if( (categoryType == null) || (categoryType.equals("All")) || (categoryType.equals("")) || (categoryType.equals("null")) ) {
                 productList = productService.getProductByAllCategory(keyword, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
 
                 CategoryService categoryService = new CategoryService();

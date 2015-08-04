@@ -67,7 +67,7 @@ CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribut
       out.write("            <span class=\"icon-bar\"></span>\r\n");
       out.write("            <span class=\"icon-bar\"></span>\r\n");
       out.write("            </button>\r\n");
-      out.write("            <a href=\"index.html\"><img src=\"images/home/logo.png\" alt=\"\" /></a>\r\n");
+      out.write("            <a href=\"/oss\"><img src=\"images/home/logo.png\" alt=\"\" /></a>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div class=\"navbar-collapse collapse\" id=\"navbar-collapsible\">\r\n");
       out.write("            <ul class=\"nav navbar-nav navbar-right shop-menu\">\r\n");
@@ -80,9 +80,13 @@ CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribut
                 if(customerDetailsDto != null) {
                 
       out.write("\r\n");
-      out.write("                    <li><a href=\"#\"><i class=\"fa fa-user fa-2x\"></i><span class=\"icon-text\"> ");
+      out.write("                    <li class=\"dropdown-toggle\" data-toggle=\"dropdown\"><a href=\"#\"><i class=\"fa fa-user fa-2x\"></i><span class=\"icon-text\"> ");
       out.print(customerDetailsDto.getFirstName());
       out.write("</span></a></li>\r\n");
+      out.write("                    <ul class=\"dropdown-menu\">\r\n");
+      out.write("                        <li><a href=\"#\">Profile</a></li>\r\n");
+      out.write("                        <li><a href=\"/oss/logoutcontroller\">Log Out</a></li>\r\n");
+      out.write("                    </ul>\r\n");
       out.write("                ");
 
                 }else {

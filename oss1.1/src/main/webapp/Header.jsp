@@ -15,7 +15,7 @@ CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribut
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+            <a href="/oss"><img src="images/home/logo.png" alt="" /></a>
         </div>
         <div class="navbar-collapse collapse" id="navbar-collapsible">
             <ul class="nav navbar-nav navbar-right shop-menu">
@@ -26,7 +26,11 @@ CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribut
                 <%
                 if(customerDetailsDto != null) {
                 %>
-                    <li><a href="#"><i class="fa fa-user fa-2x"></i><span class="icon-text"> <%=customerDetailsDto.getFirstName()%></span></a></li>
+                    <li class="dropdown-toggle" data-toggle="dropdown"><a href="#"><i class="fa fa-user fa-2x"></i><span class="icon-text"> <%=customerDetailsDto.getFirstName()%></span></a></li>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="/oss/logoutcontroller">Log Out</a></li>
+                    </ul>
                 <%
                 }else {
                 %>
