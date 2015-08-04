@@ -35,7 +35,7 @@
                 <div class="row form-content">
                     <div class="container-fluid">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-6 col-md-offset-6 col-sm-offset-6 col-xs-offset-6">
-                            <form action="/oss/signingup" method="post" role="form">
+                            <form action="/oss/signupcontroller" method="post" role="form">
                                 <div class="form-group form-inline" >
                                     <label class="sr-only" for="">first name</label>
                                     <input type="text" class="form-control first-name" id="" placeholder="First Name" name="firstName">

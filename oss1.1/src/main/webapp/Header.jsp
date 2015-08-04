@@ -1,3 +1,11 @@
+<%@page
+import = "com.sadman.dto.CustomerDetailsDto"
+%>
+
+<%
+CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribute("customerDetailsDto");
+%>
+
 <nav class="navbar navbar-inverse navbar-trans navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -15,7 +23,17 @@
                     <span class="badge">0</span></a>
                 </li>
                 <li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i> <span class="icon-text">Cart</span> <span class="badge">0</span></a></li>
-                <li><a data-toggle="modal" href='#modal-id'><i class="fa fa-user fa-2x"></i><span class="icon-text"> LogIn/SignUp</span></a></li>
+                <%
+                if(customerDetailsDto != null) {
+                %>
+                    <li><a href="#"><i class="fa fa-user fa-2x"></i><span class="icon-text"> <%=customerDetailsDto.getFirstName()%></span></a></li>
+                <%
+                }else {
+                %>
+                    <li><a data-toggle="modal" href='#modal-id'><i class="fa fa-user fa-2x"></i><span class="icon-text"> LogIn/SignUp</span></a></li>
+                <%
+                }
+                %>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group" style="display:inline;">
@@ -65,18 +83,18 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 ">
-                        <form action="" class="form-horizontal" method="POST" role="form">
+                        <form action="/oss/logincontroller" class="form-horizontal" method="post" role="form">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" name="email">
                             </div>
                             <span class="help-block"></span>
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
+                                <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2" name="password">
                             </div>
                             <span class="help-block"></span>
-                            <a href="#" class="btn btn-success btn-block btn-lg">Login</a>
+                            <input type="submit" class="btn btn-success btn-block btn-lg" value="Login">
                         </form>
                     </div>
                 </div>

@@ -40,12 +40,21 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>signingup</servlet-name>
+        <servlet-name>signupcontroller</servlet-name>
         <servlet-class>com.sadman.controller.SignupController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>signingup</servlet-name>
-        <url-pattern>/signingup</url-pattern>
+        <servlet-name>signupcontroller</servlet-name>
+        <url-pattern>/signupcontroller</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logincontroller</servlet-name>
+        <servlet-class>com.sadman.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logincontroller</servlet-name>
+        <url-pattern>/logincontroller</url-pattern>
     </servlet-mapping>
 
 

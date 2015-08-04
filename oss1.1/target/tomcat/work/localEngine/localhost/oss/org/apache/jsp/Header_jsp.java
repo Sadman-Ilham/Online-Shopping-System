@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import com.sadman.dto.CustomerDetailsDto;
 
 public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -50,6 +51,13 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
+      out.write("\r\n");
+      out.write("\r\n");
+
+CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribute("customerDetailsDto");
+
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<nav class=\"navbar navbar-inverse navbar-trans navbar-fixed-top\" role=\"navigation\">\r\n");
       out.write("    <div class=\"container\">\r\n");
       out.write("        <div class=\"navbar-header\">\r\n");
@@ -67,7 +75,25 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <span class=\"badge\">0</span></a>\r\n");
       out.write("                </li>\r\n");
       out.write("                <li><a href=\"#\"><i class=\"fa fa-shopping-cart fa-2x\"></i> <span class=\"icon-text\">Cart</span> <span class=\"badge\">0</span></a></li>\r\n");
-      out.write("                <li><a data-toggle=\"modal\" href='#modal-id'><i class=\"fa fa-user fa-2x\"></i><span class=\"icon-text\"> LogIn/SignUp</span></a></li>\r\n");
+      out.write("                ");
+
+                if(customerDetailsDto != null) {
+                
+      out.write("\r\n");
+      out.write("                    <li><a href=\"#\"><i class=\"fa fa-user fa-2x\"></i><span class=\"icon-text\"> ");
+      out.print(customerDetailsDto.getFirstName());
+      out.write("</span></a></li>\r\n");
+      out.write("                ");
+
+                }else {
+                
+      out.write("\r\n");
+      out.write("                    <li><a data-toggle=\"modal\" href='#modal-id'><i class=\"fa fa-user fa-2x\"></i><span class=\"icon-text\"> LogIn/SignUp</span></a></li>\r\n");
+      out.write("                ");
+
+                }
+                
+      out.write("\r\n");
       out.write("            </ul>\r\n");
       out.write("            <form class=\"navbar-form navbar-left\">\r\n");
       out.write("                <div class=\"form-group\" style=\"display:inline;\">\r\n");
@@ -117,18 +143,18 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("                <div class=\"row\">\r\n");
       out.write("                    <div class=\"col-xs-12 \">\r\n");
-      out.write("                        <form action=\"\" class=\"form-horizontal\" method=\"POST\" role=\"form\">\r\n");
+      out.write("                        <form action=\"/oss/logincontroller\" class=\"form-horizontal\" method=\"post\" role=\"form\">\r\n");
       out.write("                            <div class=\"input-group\">\r\n");
       out.write("                                <span class=\"input-group-addon\" id=\"basic-addon1\"><i class=\"glyphicon glyphicon-user\"></i></span>\r\n");
-      out.write("                                <input type=\"text\" class=\"form-control\" placeholder=\"Username\" aria-describedby=\"basic-addon1\">\r\n");
+      out.write("                                <input type=\"text\" class=\"form-control\" placeholder=\"Username\" aria-describedby=\"basic-addon1\" name=\"email\">\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <span class=\"help-block\"></span>\r\n");
       out.write("                            <div class=\"input-group\">\r\n");
       out.write("                                <span class=\"input-group-addon\" id=\"basic-addon2\"><i class=\"glyphicon glyphicon-lock\"></i></span>\r\n");
-      out.write("                                <input type=\"password\" class=\"form-control\" placeholder=\"Password\" aria-describedby=\"basic-addon2\">\r\n");
+      out.write("                                <input type=\"password\" class=\"form-control\" placeholder=\"Password\" aria-describedby=\"basic-addon2\" name=\"password\">\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <span class=\"help-block\"></span>\r\n");
-      out.write("                            <a href=\"#\" class=\"btn btn-success btn-block btn-lg\">Login</a>\r\n");
+      out.write("                            <input type=\"submit\" class=\"btn btn-success btn-block btn-lg\" value=\"Login\">\r\n");
       out.write("                        </form>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");

@@ -87,4 +87,21 @@ public class CustomerService {
 
         return customerDto;
     }
+
+    public CustomerDto varifyCustomer(String email, String password) throws SQLException {
+        query = "select * from customer where customer_email = '" + email + "' and customer_password = '" + password + "'";
+        resultSet = dataRetrieve.getResultset(query);
+
+        CustomerDto customerDto = new CustomerDto();
+        while(resultSet.next()){
+            customerDto.setId(resultSet.getInt("customer_id"));
+            customerDto.setEmail(resultSet.getString("customer_email"));
+            customerDto.setPassword(resultSet.getString("customer_password"));
+        }
+        if(customerDto != null) {
+            return customerDto;
+        }else {
+            return null;
+        }
+    }
 }
