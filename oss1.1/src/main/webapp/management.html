@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Font Awesome 4.3.0  -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <!-- Select2 -->
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet"
+            <!-- Modified CSS -->
+            <link href="css/management.css" rel="stylesheet">
+        </head>
+        <body>
+            <nav class="navbar navbar-inverse navbar-trans navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbar-collapsible">
+                        <ul class="nav navbar-nav navbar-right shop-menu">
+                            <li> <a href="#"><i class="fa fa-heart-o fa-2x"></i><span class="icon-text"> Wishlist </span>
+                                <span class="badge">0</span></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i> <span class="icon-text">Cart</span> <span class="badge">0</span></a></li>
+                            <li><a data-toggle="modal" href='#modal-id'><i class="fa fa-user fa-2x"></i><span class="icon-text"> LogIn/SignUp</span></a></li>
+                        </ul>
+                        <form class="navbar-form navbar-left">
+                            <div class="form-group" style="display:inline;">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Category 1</a></li>
+                                            <li><a href="#">Category 2</a></li>
+                                            <li><a href="#">Category 3</a></li>
+                                            <li><a href="#">Category 4</a></li>
+                                            <li><a href="#">Category 5</a></li>
+                                        </ul>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="What are searching for?">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <section id="main-content">
+                <div class="row">
+                    <div class="container-fluid">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="top-content-left">
+                                <div class="row header-content-left">
+                                    <div class="container-fluid">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                            <span>Add/Edit Product</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row main-content-left">
+                                    <div class="container-fluid">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <form action="" method="POST" role="form">
+                                                <div class="form-group">
+                                                    <label for="product-name">Product Name</label>
+                                                    <input type="text" class="form-control" id="product-name" placeholder="Enter product name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="product-price">Product Price</label>
+                                                    <input type="text" class="form-control" id="product-price" placeholder="Enter product price">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="product-quantity">Product Quantity</label>
+                                                    <input type="text" class="form-control" id="product-quantity" placeholder="Enter available product quantity">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="product-description">Product Description</label>
+                                                    <textarea rows="4" cols="50" class="form-control" placeholder="Enter product description" ></textarea>
+                                                </div>
+                                                <div class="form-group img-upload">
+                                                    <label>Upload Images For Product (max five)</label>
+                                                    <input type="file" id="exampleInputFile1" accept="image/*">
+                                                    <input type="file" id="exampleInputFile2" accept="image/*">
+                                                    <input type="file" id="exampleInputFile3" accept="image/*">
+                                                    <input type="file" id="exampleInputFile4" accept="image/*">
+                                                    <input type="file" id="exampleInputFile5" accept="image/*">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="category">Category</label>
+                                                    <select style="width:100% !important;" class="js-example-basic-single form-control">
+                                                        <option></option>
+                                                        <optgroup label="Alaskan/Hawaiian Time Zone">
+                                                            <option value="AK">Alaska</option>
+                                                            <option value="HI">Hawaii</option>
+                                                        </optgroup>
+                                                        <optgroup label="Pacific Time Zone">
+                                                            <option value="CA">California</option>
+                                                            <option value="NV">Nevada</option>
+                                                            <option value="OR">Oregon</option>
+                                                            <option value="WA">Washington</option>
+                                                        </optgroup>
+                                                        <optgroup label="Mountain Time Zone">
+                                                            <option value="AZ">Arizona</option>
+                                                            <option value="CO">Colorado</option>
+                                                            <option value="ID">Idaho</option>
+                                                            <option value="MT">Montana</option>
+                                                            <option value="NE">Nebraska</option>
+                                                            <option value="NM">New Mexico</option>
+                                                            <option value="ND">North Dakota</option>
+                                                            <option value="UT">Utah</option>
+                                                            <option value="WY">Wyoming</option>
+                                                        </optgroup>
+                                                        <optgroup label="Central Time Zone">
+                                                            <option value="AL">Alabama</option>
+                                                            <option value="AR">Arkansas</option>
+                                                            <option value="IL">Illinois</option>
+                                                            <option value="IA">Iowa</option>
+                                                            <option value="KS">Kansas</option>
+                                                            <option value="KY">Kentucky</option>
+                                                            <option value="LA">Louisiana</option>
+                                                            <option value="MN">Minnesota</option>
+                                                            <option value="MS">Mississippi</option>
+                                                            <option value="MO">Missouri</option>
+                                                            <option value="OK">Oklahoma</option>
+                                                            <option value="SD">South Dakota</option>
+                                                            <option value="TX">Texas</option>
+                                                            <option value="TN">Tennessee</option>
+                                                            <option value="WI">Wisconsin</option>
+                                                        </optgroup>
+                                                        <optgroup label="Eastern Time Zone">
+                                                            <option value="CT">Connecticut</option>
+                                                            <option value="DE">Delaware</option>
+                                                            <option value="FL">Florida</option>
+                                                            <option value="GA">Georgia</option>
+                                                            <option value="IN">Indiana</option>
+                                                            <option value="ME">Maine</option>
+                                                            <option value="MD">Maryland</option>
+                                                            <option value="MA">Massachusetts</option>
+                                                            <option value="MI">Michigan</option>
+                                                            <option value="NH">New Hampshire</option>
+                                                            <option value="NJ">New Jersey</option>
+                                                            <option value="NY">New York</option>
+                                                            <option value="NC">North Carolina</option>
+                                                            <option value="OH">Ohio</option>
+                                                            <option value="PA">Pennsylvania</option>
+                                                            <option value="RI">Rhode Island</option>
+                                                            <option value="SC">South Carolina</option>
+                                                            <option value="VT">Vermont</option>
+                                                            <option value="VA">Virginia</option>
+                                                            <option value="WV">West Virginia</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>
+                                                        <input id="onsale-checkbox" type="checkbox"> Product On Sale
+                                                    </label>
+                                                    <div class="input-group">
+                                                        <input id="percentage-text" type="text" class="form-control" value="0">
+                                                        <span class="input-group-addon" id="basic-addon2">%</span>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-success form-control">UPDATE</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-content-left">
+                                <div class="container-fluid">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                        <span>Upload a Banner for the store</span>
+                                        <input style="width:100% !important;" type="file" id="banner-image" accept="image/*">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <div class="container-fluid">
+                                <div class="top-content-right">
+                                    <div class="row header-content-right">
+                                        <div class="container-fluid">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                <span>Manage your Products</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row main-content-right">
+                                        <div class="container-fluid">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                                <div class="row">
+                                                    <div class="container-fluid">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                            <img  src="images/home/product7.jpg" alt="" />
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                            <div class="row">
+                                                                <div class="container-fluid">
+                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                        <div class="product-name">
+                                                                            <h3>
+                                                                            <a href="#"><span class="text-center">
+                                                                            Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                            5 Colors Available</span></a>
+                                                                            </h3>
+                                                                        </div>
+                                                                        <div class="shop-name">
+                                                                            <a href="#"><span>Shop Name</span></a>
+                                                                        </div>
+                                                                        <div class="rating-box">
+                                                                            <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 infoprice">
+                                                                        <span class="value">US $9.99</span>
+                                                                        <span class="separator">/</span>
+                                                                        <span class="unit">piece</span>
+                                                                        <div class="rating-box">
+                                                                            <div class="rating readonly-rating" data-score="3"></div>
+                                                                            <span>3 Review(s)</span>
+                                                                        </div>
+                                                                        <div class="rate-history">
+                                                                            <span class="order-num">
+                                                                            <a href="" class="order-num-a">Orders  (3)</a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="container-fluid">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right">
+                                                                        <a href="#" class="btn btn-sm btn-info"><span>Edit&nbsp;&nbsp;</span></a>
+                                                                        <a href="#" class="btn btn-sm btn-danger"><span>Delete</span></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                                <div class="row">
+                                                    <div class="container-fluid">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                            <img  src="images/home/product7.jpg" alt="" />
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                            <div class="row">
+                                                                <div class="container-fluid">
+                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                        <div class="product-name">
+                                                                            <h3>
+                                                                            <a href="#"><span class="text-center">
+                                                                            Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                            5 Colors Available</span></a>
+                                                                            </h3>
+                                                                        </div>
+                                                                        <div class="shop-name">
+                                                                            <a href="#"><span>Shop Name</span></a>
+                                                                        </div>
+                                                                        <div class="rating-box">
+                                                                            <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 infoprice">
+                                                                        <span class="value">US $9.99</span>
+                                                                        <span class="separator">/</span>
+                                                                        <span class="unit">piece</span>
+                                                                        <div class="rating-box">
+                                                                            <div class="rating readonly-rating" data-score="3"></div>
+                                                                            <span>3 Review(s)</span>
+                                                                        </div>
+                                                                        <div class="rate-history">
+                                                                            <span class="order-num">
+                                                                            <a href="" class="order-num-a">Orders  (3)</a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="container-fluid">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right">
+                                                                        <a href="#" class="btn btn-sm btn-info"><span>Edit&nbsp;&nbsp;</span></a>
+                                                                        <a href="#" class="btn btn-sm btn-danger"><span>Delete</span></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                                <div class="row">
+                                                    <div class="container-fluid">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                            <img  src="images/home/product7.jpg" alt="" />
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                            <div class="row">
+                                                                <div class="container-fluid">
+                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                        <div class="product-name">
+                                                                            <h3>
+                                                                            <a href="#"><span class="text-center">
+                                                                            Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                            5 Colors Available</span></a>
+                                                                            </h3>
+                                                                        </div>
+                                                                        <div class="shop-name">
+                                                                            <a href="#"><span>Shop Name</span></a>
+                                                                        </div>
+                                                                        <div class="rating-box">
+                                                                            <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 infoprice">
+                                                                        <span class="value">US $9.99</span>
+                                                                        <span class="separator">/</span>
+                                                                        <span class="unit">piece</span>
+                                                                        <div class="rating-box">
+                                                                            <div class="rating readonly-rating" data-score="3"></div>
+                                                                            <span>3 Review(s)</span>
+                                                                        </div>
+                                                                        <div class="rate-history">
+                                                                            <span class="order-num">
+                                                                            <a href="" class="order-num-a">Orders  (3)</a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="container-fluid">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right">
+                                                                        <a href="#" class="btn btn-sm btn-info"><span>Edit&nbsp;&nbsp;</span></a>
+                                                                        <a href="#" class="btn btn-sm btn-danger"><span>Delete</span></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                                <div class="row">
+                                                    <div class="container-fluid">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                            <img  src="images/home/product7.jpg" alt="" />
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                            <div class="row">
+                                                                <div class="container-fluid">
+                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                        <div class="product-name">
+                                                                            <h3>
+                                                                            <a href="#"><span class="text-center">
+                                                                            Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                            5 Colors Available</span></a>
+                                                                            </h3>
+                                                                        </div>
+                                                                        <div class="shop-name">
+                                                                            <a href="#"><span>Shop Name</span></a>
+                                                                        </div>
+                                                                        <div class="rating-box">
+                                                                            <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 infoprice">
+                                                                        <span class="value">US $9.99</span>
+                                                                        <span class="separator">/</span>
+                                                                        <span class="unit">piece</span>
+                                                                        <div class="rating-box">
+                                                                            <div class="rating readonly-rating" data-score="3"></div>
+                                                                            <span>3 Review(s)</span>
+                                                                        </div>
+                                                                        <div class="rate-history">
+                                                                            <span class="order-num">
+                                                                            <a href="" class="order-num-a">Orders  (3)</a>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="container-fluid">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right">
+                                                                        <a href="#" class="btn btn-sm btn-info"><span>Edit&nbsp;&nbsp;</span></a>
+                                                                        <a href="#" class="btn btn-sm btn-danger"><span>Delete</span></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pagination-style">
+                                                <nav>
+                                                    <ul class="pagination">
+                                                        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                                        <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                                                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                                                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                                                        <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
+                                                        <li><a href="#">6 <span class="sr-only">(current)</span></a></li>
+                                                        <li class="active"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Start of footer -->
+            <footer id="footer">
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <p class="text-center">All rights reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <!-- Select2 JS -->
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+            <!-- Rating JS -->
+            <script type="text/javascript" src="js/jquery.raty.js"></script>
+            <script type="text/javascript" src="js/custom.js"></script>
+        </body>
+    </html>

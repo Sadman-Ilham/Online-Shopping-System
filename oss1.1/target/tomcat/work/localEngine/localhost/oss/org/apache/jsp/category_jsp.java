@@ -317,10 +317,26 @@ public final class category_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                        </div>\r\n");
       out.write("                                                        <div class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4 infoprice\">\r\n");
       out.write("                                                            <span class=\"value\">BDT ");
+      out.print(product.getPrice());
+      out.write("</span>\r\n");
+      out.write("                                                            <span class=\"separator\">/</span>\r\n");
+      out.write("                                                            <span class=\"unit\">piece</span>\r\n");
+      out.write("                                                            ");
+
+                                                            if(product.getSale() > 0) {
+                                                            
+      out.write("\r\n");
+      out.write("                                                            <br>\r\n");
+      out.write("                                                            <span class=\"saleValue\">Now BDT ");
       out.print(product.getPrice() - ((product.getSale()*product.getPrice())/100));
       out.write("</span>\r\n");
       out.write("                                                            <span class=\"separator\">/</span>\r\n");
       out.write("                                                            <span class=\"unit\">piece</span>\r\n");
+      out.write("                                                            ");
+
+                                                            }
+                                                            
+      out.write("\r\n");
       out.write("                                                            <div class=\"rating-box\">\r\n");
       out.write("                                                                <div class=\"rating readonly-rating\" data-score=");
       out.print(product.getRatings());

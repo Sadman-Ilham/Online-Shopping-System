@@ -193,6 +193,12 @@
     font-weight: 700;
 }
 
+.saleValue {
+    color: #ff0000;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 700;
+}
 .separator, .unit {
     font-size: 12px;
     color: #999;

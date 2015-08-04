@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Font Awesome 4.3.0  -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+        <!-- Modified CSS -->
+        <link href="css/cart.css" rel="stylesheet">
+        <!-- Half-slider CSS -->
+        <link href="css/half-slider.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/jquery.raty.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-trans navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-collapsible">
+                    <ul class="nav navbar-nav navbar-right shop-menu">
+                        <li> <a href="#"><i class="fa fa-heart-o fa-2x"></i><span class="icon-text"> Wishlist </span>
+                            <span class="badge">0</span></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i> <span class="icon-text">Cart</span> <span class="badge">0</span></a></li>
+                        <li><a data-toggle="modal" href='#modal-id'><i class="fa fa-user fa-2x"></i><span class="icon-text"> LogIn/SignUp</span></a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group" style="display:inline;">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Category 1</a></li>
+                                        <li><a href="#">Category 2</a></li>
+                                        <li><a href="#">Category 3</a></li>
+                                        <li><a href="#">Category 4</a></li>
+                                        <li><a href="#">Category 5</a></li>
+                                    </ul>
+                                </div>
+                                <input type="text" class="form-control" placeholder="What are searching for?">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Start of modal window -->
+        <div class="modal fade" id="checkout-modal">
+            <div class="modal-dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Code Validation</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="POST" role="form">
+                                <div class="form-group form-inline" >
+                                    <input type="text" class="form-control code-text" id="" placeholder="Enter your code here">
+                                    <button type="button" class="btn btn-success form-control checkout-modal-btn">Checkout</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-id">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="text-center">Login or <a href="#">Sign up</a></h3>
+                        <div class="row">
+                            <div class="col-xs-4" >
+                                <a href="#" class="btn btn-lg btn-block btn-facebook">Facebook</a>
+                            </div>
+                            <div class="col-xs-4 ">
+                                <a href="#" class="btn btn-lg btn-block btn-twitter">Twitter</a>
+                            </div>
+                            <div class="col-xs-4 ">
+                                <a href="#" class="btn btn-lg btn-block btn-google">Google+</a>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <hr class="hrStyle">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 ">
+                                <form action="" class="form-horizontal" method="POST" role="form">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <span class="help-block"></span>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
+                                    </div>
+                                    <span class="help-block"></span>
+                                    <a href="#" class="btn btn-success btn-block btn-lg">Login</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-xs-6 text-left">
+                                <label><input type="checkbox" value="rememberMe"> Remember Me</label>
+                            </div>
+                            <div class="col-xs-6 text-right ">
+                                <p><a href="#">Forgot Password?</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cart-product -->
+        <section id="cart-product">
+            <div class="row">
+                <div class="container-fluid">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 product-content">
+                        <ul class="nav nav-tabs navtab-style">
+                            <li class="active"><a data-toggle="tab" href="#tab1">Cart</a></li>
+                            <li><a data-toggle="tab" href="#tab2">Order Placed</a></li>
+                            <li><a data-toggle="tab" href="#tab3">Order Purchased</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab1" class="tab-pane fade in active">
+                                <div class="row">
+                                    <div class="container-fluid">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" href="#"><i class="fa fa-credit-card"></i> <span class="icon-text">Buy Now</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" href="#"><i class="fa fa-credit-card"></i> <span class="icon-text">Buy Now</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" href="#"><i class="fa fa-credit-card"></i> <span class="icon-text">Buy Now</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" href="#"><i class="fa fa-credit-card"></i> <span class="icon-text">Buy Now</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" href="#"><i class="fa fa-credit-card"></i> <span class="icon-text">Buy Now</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pagination-style">
+                                            <nav>
+                                                <ul class="pagination">
+                                                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">6 <span class="sr-only">(current)</span></a></li>
+                                                    <li class="active"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab2" class="tab-pane fade">
+                                <div class="row">
+                                    <div class="container-fluid">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" data-toggle="modal" href='#checkout-modal'><i class="fa fa-credit-card"></i> <span class="icon-text">Checkout</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" data-toggle="modal" href='#checkout-modal'><i class="fa fa-credit-card"></i> <span class="icon-text">Checkout</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" data-toggle="modal" href='#checkout-modal'><i class="fa fa-credit-card"></i> <span class="icon-text">Checkout</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" data-toggle="modal" href='#checkout-modal'><i class="fa fa-credit-card"></i> <span class="icon-text">Checkout</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 add-to text-right" >
+                                                                    <a class="btn btn-sm btn-success" data-toggle="modal" href='#checkout-modal'><i class="fa fa-credit-card"></i> <span class="icon-text">Checkout</span></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pagination-style">
+                                            <nav>
+                                                <ul class="pagination">
+                                                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">6 <span class="sr-only">(current)</span></a></li>
+                                                    <li class="active"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tab3" class="tab-pane fade">
+                                <div class="row">
+                                    <div class="container-fluid">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
+                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                        <div class="row">
+                                                            <div class="container-fluid">
+                                                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
+                                                                    <div class="product-name">
+                                                                        <h3>
+                                                                        <a href="#"><span class="text-center">
+                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
+                                                                        5 Colors Available</span></a>
+                                                                        </h3>
+                                                                    </div>
+                                                                    <div class="shop-name">
+                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                    </div>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
+                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="separator">/</span>
+                                                                    <span class="unit">piece</span>
+                                                                    <div class="rating-box">
+                                                                        <div class="rating readonly-rating" data-score="3"></div>
+                                                                        <span>3 Review(s)</span>
+                                                                    </div>
+                                                                    <div class="rate-history">
+                                                                        <span class="order-num">
+                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-right cross">
+                                                                    <a href=""><i class="fa fa-times"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pagination-style">
+                                            <nav>
+                                                <ul class="pagination">
+                                                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
+                                                    <li><a href="#">6 <span class="sr-only">(current)</span></a></li>
+                                                    <li class="active"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 product-price text-center">
+                        <div class="row">
+                            <div class="container-fluid">
+                                <div class="product-quantity">
+                                    <span class="total-product-text">No. Of Products:</span>
+                                    <span class="total">5</span>
+                                </div>
+                                <div class="total-price">
+                                    <span class="total-price-text">Total Price:</span>
+                                    <span class="total">BDT 500.0</span>
+                                </div>
+                                <a class="btn btn-md btn-success" href="#"><i class="fa fa-credit-card"></i> <span class="icon-text">Buy All</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Start of footer -->
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="companyinfo">
+                                <h2><span>e</span>-shopper</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="images/home/iframe1.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="images/home/iframe2.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="images/home/iframe3.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div class="video-gallery text-center">
+                                    <a href="#">
+                                    <div class="iframe-img">
+                                        <img src="images/home/iframe4.png" alt="" />
+                                    </div>
+                                    <div class="overlay-icon">
+                                        <i class="fa fa-play-circle-o"></i>
+                                    </div>
+                                    </a>
+                                    <p>Circle of Hands</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <div class="address">
+                                <img src="images/home/map.png" alt="" />
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-widget">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="single-widget">
+                                <h2>Service</h2>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">Online Help</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Order Status</a></li>
+                                    <li><a href="#">Change Location</a></li>
+                                    <li><a href="#">FAQ’s</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="single-widget">
+                                <h2>Quock Shop</h2>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">T-Shirt</a></li>
+                                    <li><a href="#">Mens</a></li>
+                                    <li><a href="#">Womens</a></li>
+                                    <li><a href="#">Gift Cards</a></li>
+                                    <li><a href="#">Shoes</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="single-widget">
+                                <h2>Policies</h2>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">Terms of Use</a></li>
+                                    <li><a href="#">Privecy Policy</a></li>
+                                    <li><a href="#">Refund Policy</a></li>
+                                    <li><a href="#">Billing System</a></li>
+                                    <li><a href="#">Ticket System</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="single-widget">
+                                <h2>About Shopper</h2>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#">Company Information</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Store Location</a></li>
+                                    <li><a href="#">Affillate Program</a></li>
+                                    <li><a href="#">Copyright</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-sm-offset-1 col-xs-offset-1">
+                            <div class="single-widget">
+                                <h2>About Shopper</h2>
+                                <form action="#" class="searchform">
+                                    <input type="text" placeholder="Your email address" />
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                                    <p>Get the most recent updates from <br />our site and be updated your self...</p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <p class="pull-left">All rights reserved.</p>
+                        <p class="pull-right"><span><a target="_blank" href="#"></a></span></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- Rating JS -->
+        <script type="text/javascript" src="js/jquery.raty.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+    </body>
+</html>

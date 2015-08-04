@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Font Awesome 4.3.0  -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+        <!-- Modified CSS -->
+        <link href="css/feedback.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-trans navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-collapsible">
+                    <ul class="nav navbar-nav navbar-right shop-menu">
+                        <li> <a href="#"><i class="fa fa-heart-o fa-2x"></i><span class="icon-text"> Wishlist </span>
+                            <span class="badge">0</span></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i> <span class="icon-text">Cart</span> <span class="badge">0</span></a></li>
+                        <li><a data-toggle="modal" href='#modal-id'><i class="fa fa-user fa-2x"></i><span class="icon-text"> LogIn/SignUp</span></a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group" style="display:inline;">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Category 1</a></li>
+                                        <li><a href="#">Category 2</a></li>
+                                        <li><a href="#">Category 3</a></li>
+                                        <li><a href="#">Category 4</a></li>
+                                        <li><a href="#">Category 5</a></li>
+                                    </ul>
+                                </div>
+                                <input type="text" class="form-control" placeholder="What are searching for?">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <section id="feedback">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <textarea rows="4" cols="50" class="form-control" placeholder="Seller Message" readonly=""></textarea>
+                        <div class="text-style">
+                            <span >Please rate the product and the store and give a review</span>
+                        </div>
+                        <div class="row rating">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Product<i class="rating product-rate" data-score="0"></i></span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
+                                <span>Store<i class="rating shop-rate" data-score="0"></i></span>
+                            </div>
+                        </div>
+                        <form class="review-form" action="" method="POST"  role="form">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="4" cols="50" placeholder="Write your review here" ></textarea>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-success">Submit Review</button>
+                            </div>
+                        </form>
+                        <div class="skip">
+                            <a href="#">I want to skip the page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Start of footer -->
+        <footer id="footer">
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <p class="text-center">All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- Rating JS -->
+        <script type="text/javascript" src="js/jquery.raty.js"></script>
+        <script type="text/javascript" src="js/custom.js"></script>
+    </body>
+</html>

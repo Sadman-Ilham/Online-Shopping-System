@@ -193,9 +193,19 @@ import = "java.util.List"
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 infoprice">
-                                                            <span class="value">BDT <%=product.getPrice() - ((product.getSale()*product.getPrice())/100)%></span>
+                                                            <span class="value">BDT <%=product.getPrice()%></span>
                                                             <span class="separator">/</span>
                                                             <span class="unit">piece</span>
+                                                            <%
+                                                            if(product.getSale() > 0) {
+                                                            %>
+                                                            <br>
+                                                            <span class="saleValue">Now BDT <%=product.getPrice() - ((product.getSale()*product.getPrice())/100)%></span>
+                                                            <span class="separator">/</span>
+                                                            <span class="unit">piece</span>
+                                                            <%
+                                                            }
+                                                            %>
                                                             <div class="rating-box">
                                                                 <div class="rating readonly-rating" data-score=<%=product.getRatings()%>></div>
                                                                 <span><%=product.getReview()%> Review(s)</span>
