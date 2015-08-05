@@ -3,7 +3,9 @@ package com.sadman.service;
 import com.sadman.database.DataRetrieve;
 import com.sadman.database.DatabaseConnection;
 import com.sadman.dto.CartDto;
+import com.sadman.dto.ProductDto;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -39,9 +41,22 @@ public class CartService {
     }
 
     public void addProductToCart(int customerId, int productId) throws SQLException {
-        query = "insert into cart (cart_customerId, cart_productId) values (" + customerId + ", " + productId + ")";
-        statement = databaseConnection.getStatement();
-        statement.executeUpdate(query);
+        if(!productNotAssignedBefore(customerId, productId)) {
+            query = "insert into cart (cart_customerId, cart_productId) values (" + customerId + ", " + productId + ")";
+            statement = databaseConnection.getStatement();
+            statement.executeUpdate(query);
+        }
+    }
+
+    private boolean productNotAssignedBefore(int customerId, int productId) throws SQLException {
+        query = "select * from cart where cart_customerId = " + customerId + " and cart_productId = " + productId;
+        resultSet = dataRetrieve.getResultset(query);
+
+        if(resultSet.next()) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
     private List<CartDto> fillTheList() throws SQLException {
@@ -58,5 +73,14 @@ public class CartService {
         }
 
         return cartList;
+    }
+
+    public boolean addProductToCartSession(int productId, List<ProductDto> sessionCartList) {
+        for(ProductDto product : sessionCartList) {
+            if(product.getId() == productId) {
+                return false;
+            }
+        }
+        return true;
     }
 }

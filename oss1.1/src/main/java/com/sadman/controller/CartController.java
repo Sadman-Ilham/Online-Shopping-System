@@ -27,16 +27,17 @@ public class CartController extends HttpServlet {
 
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            System.out.println("in post");
             URLService urlService = new URLService();
             urlService.saveURL(request);
 
             productId = Integer.parseInt(request.getParameter("pid"));
 
             ProductService productService = new ProductService();
+            CartService cartService = new CartService();
 
             if(request.getSession().getAttribute("sessionUser") != null) {
                 CustomerDetailsDto customer = (CustomerDetailsDto) request.getSession().getAttribute("sessionUser");
-                CartService cartService = new CartService();
                 cartService.addProductToCart(customer.getCustomerId(), productId);
 
                 if(request.getSession().getAttribute("sessionCartProductList") != null) {
@@ -48,27 +49,62 @@ public class CartController extends HttpServlet {
                     }
 
                     //adding the product to session
+                    if(cartService.addProductToCartSession(productId, cartProductList)) {
+                        cartProductList.add(productService.getProductById(productId));
+                        request.getSession().setAttribute("sessionCartProductList", cartProductList);
+                    }
+                }else {
+                    cartProductList = new ArrayList<ProductDto>();
                     cartProductList.add(productService.getProductById(productId));
-                    request.getSession().setAttribute("sessionCartProductList", cartProductList);
                 }
 
                 cartList = cartService.getCartProductByCustomerId(customer.getCustomerId());
 
                 cartProductList = productService.getCartProductDetails(cartList);
-
-                request.setAttribute("cartProductList", cartProductList);
             }else {
                 if(request.getSession().getAttribute("sessionCartProductList") != null) {
                     cartProductList = (List<ProductDto>) request.getSession().getAttribute("sessionCartProductList");
-                    cartProductList.add(productService.getProductById(productId));
+                    if(cartService.addProductToCartSession(productId, cartProductList)) {
+                        cartProductList.add(productService.getProductById(productId));
+                    }
                 }else {
                     cartProductList = new ArrayList<ProductDto>();
                     cartProductList.add(productService.getProductById(productId));
                 }
                 request.getSession().setAttribute("sessionCartProductList", cartProductList);
-                request.setAttribute("cartProductList", cartProductList);
             }
 
+            request.setAttribute("cartProductList", cartProductList);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
+            dispatcher.forward(request, response);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try{
+            System.out.println("in get");
+            URLService urlService = new URLService();
+            urlService.saveURL(request);
+
+            ProductService productService = new ProductService();
+
+            if(request.getSession().getAttribute("sessionUser") != null) {
+                CustomerDetailsDto customer = (CustomerDetailsDto) request.getSession().getAttribute("sessionUser");
+                CartService cartService = new CartService();
+
+                cartList = cartService.getCartProductByCustomerId(customer.getCustomerId());
+                cartProductList = productService.getCartProductDetails(cartList);
+            }else {
+                if(request.getSession().getAttribute("sessionCartProductList") != null) {
+                    cartProductList = (List<ProductDto>) request.getSession().getAttribute("sessionCartProductList");
+                }else {
+                    cartProductList = new ArrayList<ProductDto>();
+                }
+            }
+
+            request.setAttribute("cartProductList", cartProductList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
             dispatcher.forward(request, response);
         }catch (Exception e){
