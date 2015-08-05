@@ -3,7 +3,7 @@ import = "com.sadman.dto.CustomerDetailsDto"
 %>
 
 <%
-CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribute("customerDetailsDto");
+CustomerDetailsDto sessionUser = (CustomerDetailsDto) session.getAttribute("sessionUser");
 %>
 
 <nav class="navbar navbar-inverse navbar-trans navbar-fixed-top" role="navigation">
@@ -24,9 +24,9 @@ CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribut
                 </li>
                 <li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i> <span class="icon-text">Cart</span> <span class="badge">0</span></a></li>
                 <%
-                if(customerDetailsDto != null) {
+                if(sessionUser != null) {
                 %>
-                    <li class="dropdown-toggle" data-toggle="dropdown"><a href="#"><i class="fa fa-user fa-2x"></i><span class="icon-text"> <%=customerDetailsDto.getFirstName()%></span></a></li>
+                    <li class="dropdown-toggle" data-toggle="dropdown"><a href="#"><i class="fa fa-user fa-2x"></i><span class="icon-text"> <%=sessionUser.getFirstName()%></span></a></li>
                     <ul class="dropdown-menu">
                         <li><a href="#">Profile</a></li>
                         <li><a href="/oss/logoutcontroller">Log Out</a></li>

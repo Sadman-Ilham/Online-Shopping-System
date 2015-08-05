@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /**
- * Created by BS15 on 8/4/2015.
+ * Created by Sadman on 8/4/2015.
  */
 public class LoginController extends HttpServlet {
 
@@ -28,8 +28,9 @@ public class LoginController extends HttpServlet {
             if(customerDto != null) {
                 CustomerDetailsDto customerDetailsDto = customerService.getCustomerById(customerDto.getId());
 
-                request.getSession().setAttribute("customerDetailsDto", customerDetailsDto);
-                System.out.println(customerDetailsDto.getFirstName() + " :: Login Successful!");
+//                request.getSession().setAttribute("customerDetailsDto", customerDetailsDto);
+                request.getSession().setAttribute("sessionUser", customerDetailsDto);
+                // System.out.println(customerDetailsDto.getFirstName() + " :: Login Successful!");
             }
             if(request.getSession().getAttribute("lastVisitedPage") != null) {
                 response.sendRedirect(request.getSession().getAttribute("lastVisitedPage").toString());

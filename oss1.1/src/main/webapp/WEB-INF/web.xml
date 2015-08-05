@@ -40,6 +40,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>cart</servlet-name>
+        <servlet-class>com.sadman.controller.CartController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cart</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>signupcontroller</servlet-name>
         <servlet-class>com.sadman.controller.SignupController</servlet-class>
     </servlet>

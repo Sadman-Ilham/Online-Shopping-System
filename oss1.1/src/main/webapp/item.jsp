@@ -155,11 +155,14 @@ import = "java.util.List"
                                             </a>
                                             </span>
                                             <span class="add-to-compare">
-                                            <a href="#"> <span class="action-wrapper">
+                                            <form id="cartButtonForm" method="post" action="/oss/cart">
+                                            <input type="hidden" name="pid" value=<%=productDetails.getId()%>>
+                                            <a onclick="document.getElementById('cartButtonForm').submit();"> <span class="action-wrapper">
                                             <i class="icons fa fa-shopping-cart"></i>
                                             <span class="action-name">Add to cart</span>
                                             </span>
                                             </a>
+                                            </form>
                                             </span>
                                         </div>
                                     </div>

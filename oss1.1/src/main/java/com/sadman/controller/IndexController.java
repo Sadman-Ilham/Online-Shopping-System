@@ -2,6 +2,7 @@ package com.sadman.controller;
 
 import com.sadman.dto.ProductDto;
 import com.sadman.service.ProductService;
+import com.sadman.service.URLService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,12 +21,8 @@ public class IndexController extends HttpServlet{
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            if(request.getQueryString() != null) {
-                request.getSession().setAttribute("lastVisitedPage", request.getRequestURL().append('?').append(request.getQueryString()));
-            }else {
-                request.getSession().setAttribute("lastVisitedPage", request.getRequestURL());
-            }
-
+            URLService urlService = new URLService();
+            urlService.saveURL(request);
 
             ProductService productService = new ProductService();
             productsByRatings = productService.getProductByRatings();

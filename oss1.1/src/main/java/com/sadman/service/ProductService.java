@@ -2,13 +2,11 @@ package com.sadman.service;
 
 import com.sadman.database.DataRetrieve;
 import com.sadman.database.DatabaseConnection;
-import com.sadman.dto.CategoryDto;
-import com.sadman.dto.ProductDto;
-import com.sadman.dto.StoreDetailsDto;
-import com.sadman.dto.SubCategoryDto;
+import com.sadman.dto.*;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +20,7 @@ public class ProductService {
     private ResultSet resultSet;
     private List<ProductDto> productList;
     private String query;
+    private Statement statement;
 
     public ProductService() throws SQLException {
         databaseConnection = DatabaseConnection.createConnection();
@@ -89,7 +88,6 @@ public class ProductService {
     }
 
     public List<ProductDto> getProductByAllCategory(String key, double priceFrom, double priceTo, int quantityFrom, int quantityTo, String sortBy) throws SQLException {
-        query = "";
         getDynamicQuery(key, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
 
         if(query != null && !query.equals("")) {
@@ -111,7 +109,6 @@ public class ProductService {
     }
 
     public List<ProductDto> getProductByCategoryName(String name, String key, double priceFrom, double priceTo, int quantityFrom, int quantityTo, String sortBy) throws SQLException {
-        query = "";
         getDynamicQuery(key, priceFrom, priceTo, quantityFrom, quantityTo, sortBy);
         CategoryService categoryService = new CategoryService();
         CategoryDto categoryDto = categoryService.getCategoryByName(name);
@@ -150,6 +147,18 @@ public class ProductService {
         }else {
             return null;
         }
+    }
+
+    public List<ProductDto> getCartProductDetails(List<CartDto> cartList) throws SQLException {
+        productList = new ArrayList<ProductDto>();
+        ProductDto product;
+        for(CartDto cart : cartList) {
+            product = getProductById(cart.getProductId());
+
+            productList.add(product);
+        }
+
+        return productList;
     }
 
     public void getDynamicQuery(String key, double priceFrom, double priceTo, int quantityFrom, int quantityTo, String sortBy) throws SQLException {
@@ -192,6 +201,7 @@ public class ProductService {
             product.setUploadDateTime(resultSet.getString("product_uploadDateTime"));
             product.setRatings(resultSet.getInt("product_ratings"));
             product.setView(resultSet.getInt("product_view"));
+            product.setOrder(resultSet.getInt("product_order"));
             product.setSale(resultSet.getDouble("product_sale"));
             product.setReview(resultSet.getInt("product_review"));
             product.setCartTimeLimit(resultSet.getInt("product_cartTimeLimit"));
@@ -225,6 +235,7 @@ public class ProductService {
             product.setUploadDateTime(resultSet.getString("product_uploadDateTime"));
             product.setRatings(resultSet.getInt("product_ratings"));
             product.setView(resultSet.getInt("product_view"));
+            product.setOrder(resultSet.getInt("product_order"));
             product.setSale(resultSet.getDouble("product_sale"));
             product.setReview(resultSet.getInt("product_review"));
             product.setCartTimeLimit(resultSet.getInt("product_cartTimeLimit"));
@@ -246,5 +257,4 @@ public class ProductService {
         StoreService storeService = new StoreService();
         return storeService.getStoreById(id);
     }
-
 }

@@ -54,7 +54,7 @@ public final class Header_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
 
-CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribute("customerDetailsDto");
+CustomerDetailsDto sessionUser = (CustomerDetailsDto) session.getAttribute("sessionUser");
 
       out.write("\r\n");
       out.write("\r\n");
@@ -77,11 +77,11 @@ CustomerDetailsDto customerDetailsDto = (CustomerDetailsDto) session.getAttribut
       out.write("                <li><a href=\"#\"><i class=\"fa fa-shopping-cart fa-2x\"></i> <span class=\"icon-text\">Cart</span> <span class=\"badge\">0</span></a></li>\r\n");
       out.write("                ");
 
-                if(customerDetailsDto != null) {
+                if(sessionUser != null) {
                 
       out.write("\r\n");
       out.write("                    <li class=\"dropdown-toggle\" data-toggle=\"dropdown\"><a href=\"#\"><i class=\"fa fa-user fa-2x\"></i><span class=\"icon-text\"> ");
-      out.print(customerDetailsDto.getFirstName());
+      out.print(sessionUser.getFirstName());
       out.write("</span></a></li>\r\n");
       out.write("                    <ul class=\"dropdown-menu\">\r\n");
       out.write("                        <li><a href=\"#\">Profile</a></li>\r\n");

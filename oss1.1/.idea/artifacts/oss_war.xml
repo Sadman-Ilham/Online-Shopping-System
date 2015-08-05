@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="oss:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="oss-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="oss:war exploded" />
+    </root>
+  </artifact>
+</component>

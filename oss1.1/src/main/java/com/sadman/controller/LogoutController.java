@@ -12,7 +12,7 @@ import java.io.IOException;
 public class LogoutController extends HttpServlet {
 
     public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().removeAttribute("customerDetailsDto");
+        request.getSession().removeAttribute("sessionUser");
 
         if(request.getSession().getAttribute("lastVisitedPage") != null) {
             response.sendRedirect(request.getSession().getAttribute("lastVisitedPage").toString());

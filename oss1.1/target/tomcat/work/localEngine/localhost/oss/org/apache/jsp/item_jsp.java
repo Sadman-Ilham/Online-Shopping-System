@@ -246,11 +246,16 @@ if(productDetails.getSale() > 0) {
       out.write("                                            </a>\r\n");
       out.write("                                            </span>\r\n");
       out.write("                                            <span class=\"add-to-compare\">\r\n");
-      out.write("                                            <a href=\"#\"> <span class=\"action-wrapper\">\r\n");
+      out.write("                                            <form id=\"cartButtonForm\" method=\"post\" action=\"/oss/cart\">\r\n");
+      out.write("                                            <input type=\"hidden\" name=\"pid\" value=");
+      out.print(productDetails.getId());
+      out.write(">\r\n");
+      out.write("                                            <a onclick=\"document.getElementById('cartButtonForm').submit();\"> <span class=\"action-wrapper\">\r\n");
       out.write("                                            <i class=\"icons fa fa-shopping-cart\"></i>\r\n");
       out.write("                                            <span class=\"action-name\">Add to cart</span>\r\n");
       out.write("                                            </span>\r\n");
       out.write("                                            </a>\r\n");
+      out.write("                                            </form>\r\n");
       out.write("                                            </span>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");

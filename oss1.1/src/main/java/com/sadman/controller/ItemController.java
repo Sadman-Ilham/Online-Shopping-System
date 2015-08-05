@@ -6,6 +6,7 @@ import com.sadman.dto.ReviewDto;
 import com.sadman.service.CategoryService;
 import com.sadman.service.ProductService;
 import com.sadman.service.ReviewService;
+import com.sadman.service.URLService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,11 +32,8 @@ public class ItemController extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if(request.getQueryString() != null) {
-                request.getSession().setAttribute("lastVisitedPage", request.getRequestURL().append('?').append(request.getQueryString()));
-            }else {
-                request.getSession().setAttribute("lastVisitedPage", request.getRequestURL());
-            }
+            URLService urlService = new URLService();
+            urlService.saveURL(request);
 
             pid = Integer.parseInt(request.getParameter("pid"));
 

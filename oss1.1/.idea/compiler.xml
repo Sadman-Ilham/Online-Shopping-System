@@ -26,6 +26,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="oss" target="1.5" />
       <module name="oss1.1" target="1.5" />
     </bytecodeTargetLevel>
   </component>
