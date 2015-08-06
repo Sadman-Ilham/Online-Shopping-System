@@ -12,8 +12,9 @@ com\sadman\controller\ItemController.class
 com\sadman\service\ProductService.class
 com\sadman\service\URLService.class
 com\sadman\dto\ReviewDto.class
-com\sadman\controller\LogoutController.class
 com\sadman\service\ReviewService.class
+com\sadman\controller\LogoutController.class
+com\sadman\controller\PurchaseController.class
 com\sadman\dto\ProductDto.class
 com\sadman\controller\IndexController.class
 com\sadman\controller\OrderController.class

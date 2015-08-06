@@ -6,7 +6,7 @@ import = "com.sadman.dto.CustomerDetailsDto"
 CustomerDetailsDto sessionUser = (CustomerDetailsDto) session.getAttribute("sessionUser");
 %>
 
-<nav class="navbar navbar-inverse navbar-trans navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-trans navbar-fixed-top" role="navigation" style="background-image: none; background-color: #385670">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
@@ -15,14 +15,14 @@ CustomerDetailsDto sessionUser = (CustomerDetailsDto) session.getAttribute("sess
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a href="/oss"><img src="images/home/logo.png" alt="" /></a>
+            <a href="/oss"><img src="images/home/logo.jpg" style="background-size:20px 20px;" alt="" /></a>
         </div>
         <div class="navbar-collapse collapse" id="navbar-collapsible">
             <ul class="nav navbar-nav navbar-right shop-menu">
                 <li> <a href="#"><i class="fa fa-heart-o fa-2x"></i><span class="icon-text"> Wishlist </span>
-                    <span class="badge">0</span></a>
+                    <span class="badge"></span></a>
                 </li>
-                <li><a href="#"><i class="fa fa-shopping-cart fa-2x"></i> <span class="icon-text">Cart</span> <span class="badge">0</span></a></li>
+                <li><a href="/oss/cart"><i class="fa fa-shopping-cart fa-2x"></i> <span class="icon-text">Cart</span> <span class="badge"></span></a></li>
                 <%
                 if(sessionUser != null) {
                 %>

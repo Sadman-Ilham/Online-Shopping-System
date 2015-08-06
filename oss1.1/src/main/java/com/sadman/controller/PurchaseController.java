@@ -19,10 +19,7 @@ public class PurchaseController extends HttpServlet {
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             oid = Integer.parseInt(request.getParameter("oid"));
-
             code = request.getParameter("code");
-
-            CustomerDetailsDto customer = (CustomerDetailsDto) request.getSession().getAttribute("sessionUser");
 
             OrderService orderService = new OrderService();
             if(orderService.varifyPurchase(oid, code)) {

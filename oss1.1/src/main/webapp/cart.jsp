@@ -245,11 +245,15 @@ import = "java.util.List"
                             <div id="tab3" class="tab-pane fade">
                                 <div class="row">
                                     <div class="container-fluid">
+                                        <%
+                                        if(orderPurchasedProductList != null) {
+                                        for(OrderDto order : orderPurchasedProductList) {
+                                        %>
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list">
                                             <div class="row">
                                                 <div class="container-fluid">
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image">
-                                                        <img  src="images/home/product7.jpg" alt="" />
+                                                        <img  src=<%=order.getImageUrl()%> alt="" />
                                                     </div>
                                                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                                         <div class="row">
@@ -257,29 +261,27 @@ import = "java.util.List"
                                                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc">
                                                                     <div class="product-name">
                                                                         <h3>
-                                                                        <a href="#"><span class="text-center">
-                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))
-                                                                        5 Colors Available</span></a>
+                                                                        <a href="#"><span class="text-center"><%=order.getProductName()%></a>
                                                                         </h3>
                                                                     </div>
                                                                     <div class="shop-name">
-                                                                        <a href="#"><span>Shop Name</span></a>
+                                                                        <a href="#"><span><%=order.getStoreName()%></span></a>
                                                                     </div>
                                                                     <div class="rating-box">
-                                                                        <div class="rating medal readonly-rating" data-score="3" alt="shop-rating"></div>
+                                                                        <div class="rating medal readonly-rating" data-score=<%=order.getStoreRatings()%> alt="shop-rating"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice">
-                                                                    <span class="value">US $9.99</span>
+                                                                    <span class="value">Purchased With BDT <%=order.getPrice()%></span>
                                                                     <span class="separator">/</span>
                                                                     <span class="unit">piece</span>
                                                                     <div class="rating-box">
-                                                                        <div class="rating readonly-rating" data-score="3"></div>
-                                                                        <span>3 Review(s)</span>
+                                                                        <div class="rating readonly-rating" data-score=<%=order.getProductRatings()%>></div>
+                                                                        <span><%=order.getProductReview()%> Review(s)</span>
                                                                     </div>
                                                                     <div class="rate-history">
                                                                         <span class="order-num">
-                                                                        <a href="" class="order-num-a">Orders  (3)</a>
+                                                                        <a href="" class="order-num-a">Orders ()</a>
                                                                         </span>
                                                                     </div>
                                                                 </div>
@@ -292,20 +294,10 @@ import = "java.util.List"
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pagination-style">
-                                            <nav>
-                                                <ul class="pagination">
-                                                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                                                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                                                    <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
-                                                    <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
-                                                    <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
-                                                    <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
-                                                    <li><a href="#">6 <span class="sr-only">(current)</span></a></li>
-                                                    <li class="active"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                                                </ul>
-                                            </nav>
-                                        </div>
+                                        <%
+                                        }
+                                        }
+                                        %>
                                     </div>
                                 </div>
                             </div>
@@ -320,7 +312,7 @@ import = "java.util.List"
                                 </div>
                                 <div class="total-price">
                                     <span class="total-price-text">Total Price:</span>
-                                    <span class="total">BDT 500.0</span>
+                                    <span class="total">BDT </span>
                                 </div>
                             </div>
                         </div>

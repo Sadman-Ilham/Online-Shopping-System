@@ -58,7 +58,7 @@ CustomerDetailsDto sessionUser = (CustomerDetailsDto) session.getAttribute("sess
 
       out.write("\r\n");
       out.write("\r\n");
-      out.write("<nav class=\"navbar navbar-inverse navbar-trans navbar-fixed-top\" role=\"navigation\">\r\n");
+      out.write("<nav class=\"navbar navbar-inverse navbar-trans navbar-fixed-top\" role=\"navigation\" style=\"background-image: none; background-color: #385670\">\r\n");
       out.write("    <div class=\"container\">\r\n");
       out.write("        <div class=\"navbar-header\">\r\n");
       out.write("            <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#navbar-collapsible\">\r\n");
@@ -67,14 +67,14 @@ CustomerDetailsDto sessionUser = (CustomerDetailsDto) session.getAttribute("sess
       out.write("            <span class=\"icon-bar\"></span>\r\n");
       out.write("            <span class=\"icon-bar\"></span>\r\n");
       out.write("            </button>\r\n");
-      out.write("            <a href=\"/oss\"><img src=\"images/home/logo.png\" alt=\"\" /></a>\r\n");
+      out.write("            <a href=\"/oss\"><img src=\"images/home/logo.jpg\" style=\"background-size:20px 20px;\" alt=\"\" /></a>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div class=\"navbar-collapse collapse\" id=\"navbar-collapsible\">\r\n");
       out.write("            <ul class=\"nav navbar-nav navbar-right shop-menu\">\r\n");
       out.write("                <li> <a href=\"#\"><i class=\"fa fa-heart-o fa-2x\"></i><span class=\"icon-text\"> Wishlist </span>\r\n");
-      out.write("                    <span class=\"badge\">0</span></a>\r\n");
+      out.write("                    <span class=\"badge\"></span></a>\r\n");
       out.write("                </li>\r\n");
-      out.write("                <li><a href=\"#\"><i class=\"fa fa-shopping-cart fa-2x\"></i> <span class=\"icon-text\">Cart</span> <span class=\"badge\">0</span></a></li>\r\n");
+      out.write("                <li><a href=\"/oss/cart\"><i class=\"fa fa-shopping-cart fa-2x\"></i> <span class=\"icon-text\">Cart</span> <span class=\"badge\"></span></a></li>\r\n");
       out.write("                ");
 
                 if(sessionUser != null) {

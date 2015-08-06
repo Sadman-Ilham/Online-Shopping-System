@@ -84,6 +84,15 @@
         <url-pattern>/logoutcontroller</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>purchasecontroller</servlet-name>
+        <servlet-class>com.sadman.controller.PurchaseController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>purchasecontroller</servlet-name>
+        <url-pattern>/purchasecontroller</url-pattern>
+    </servlet-mapping>
+
 
     <!--jsp files-->
 

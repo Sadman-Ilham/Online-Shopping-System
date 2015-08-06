@@ -63,14 +63,20 @@ public class OrderService {
     }
 
     public boolean varifyPurchase(int orderId, String code) throws SQLException {
-        query = "select * from `order` where order_id = " + orderId;
-        resultSet = dataRetrieve.getResultset(query);
+        try {
+            query = "select * from `order` where order_id = " + orderId;
 
-        if(resultSet != null) {
-            return checkCode(fillTheObject(), code);
-        }else {
+            resultSet = dataRetrieve.getResultset(query);
+
+            if (resultSet != null) {
+                return checkCode(fillTheObject(), code);
+            } else {
+                return false;
+            }
+        }catch(Exception e){{
+            System.out.println(e);
             return false;
-        }
+        }}
     }
 
     public void updateOrderPlacedToOrderPurchased(int oid) throws SQLException {
@@ -82,16 +88,18 @@ public class OrderService {
     private OrderDto fillTheObject() throws SQLException {
         OrderDto orderDto = new OrderDto();
 
-        orderDto.setId(resultSet.getInt("order_id"));
-        orderDto.setCustomerId(resultSet.getInt("order_customerId"));
-        orderDto.setProductId(resultSet.getInt("order_productId"));
-        orderDto.setQuantity(resultSet.getInt("order_quantity"));
-        orderDto.setPrice(resultSet.getDouble("order_price"));
-        orderDto.setDateTime(resultSet.getString("order_dateTime"));
-        orderDto.setStatus(resultSet.getInt("order_status"));
-        orderDto.setDeliveryPlace(resultSet.getString("order_deliveryPlace"));
-        orderDto.setCustomerPhone(resultSet.getString("order_customerPhone"));
-        orderDto.setCode(resultSet.getString("order_code"));
+        while(resultSet.next()) {
+            orderDto.setId(resultSet.getInt("order_id"));
+            orderDto.setCustomerId(resultSet.getInt("order_customerId"));
+            orderDto.setProductId(resultSet.getInt("order_productId"));
+            orderDto.setQuantity(resultSet.getInt("order_quantity"));
+            orderDto.setPrice(resultSet.getDouble("order_price"));
+            orderDto.setDateTime(resultSet.getString("order_dateTime"));
+            orderDto.setStatus(resultSet.getInt("order_status"));
+            orderDto.setDeliveryPlace(resultSet.getString("order_deliveryPlace"));
+            orderDto.setCustomerPhone(resultSet.getString("order_customerPhone"));
+            orderDto.setCode(resultSet.getString("order_code"));
+        }
 
         return orderDto;
     }
@@ -133,9 +141,14 @@ public class OrderService {
     }
 
     private boolean checkCode(OrderDto order, String code) {
-        if(order.getCode().equals(code)) {
-            return true;
-        }else {
+        try{
+            if(order.getCode().equals(code)) {
+                return true;
+            }else {
+                return false;
+            }
+        }catch (Exception e) {
+            System.out.println(e);
             return false;
         }
     }

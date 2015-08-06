@@ -104,10 +104,10 @@ public final class cart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <h4 class=\"modal-title\">Code Validation</h4>\r\n");
       out.write("                        </div>\r\n");
       out.write("                        <div class=\"modal-body\">\r\n");
-      out.write("                            <form action=\"\" method=\"POST\" role=\"form\">\r\n");
+      out.write("                            <form action=\"/oss/purchasecontroller\" method=\"post\" role=\"form\">\r\n");
       out.write("                                <div class=\"form-group form-inline sad-code-form\" >\r\n");
       out.write("                                    <input type=\"hidden\" name=\"oid\" id=\"oid\" value=\"\">\r\n");
-      out.write("                                    <input type=\"text\" class=\"form-control code-text\" id=\"\" placeholder=\"Enter your code here\">\r\n");
+      out.write("                                    <input type=\"text\" class=\"form-control code-text\" name=\"code\" id=\"\" placeholder=\"Enter your code here\">\r\n");
       out.write("                                    <input type=\"submit\" class=\"btn btn-success form-control checkout-modal-btn\" value=\"Checkout\">\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </form>\r\n");
@@ -360,11 +360,19 @@ public final class cart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div id=\"tab3\" class=\"tab-pane fade\">\r\n");
       out.write("                                <div class=\"row\">\r\n");
       out.write("                                    <div class=\"container-fluid\">\r\n");
+      out.write("                                        ");
+
+                                        if(orderPurchasedProductList != null) {
+                                        for(OrderDto order : orderPurchasedProductList) {
+                                        
+      out.write("\r\n");
       out.write("                                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 product-list\">\r\n");
       out.write("                                            <div class=\"row\">\r\n");
       out.write("                                                <div class=\"container-fluid\">\r\n");
       out.write("                                                    <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 productlist-image\">\r\n");
-      out.write("                                                        <img  src=\"images/home/product7.jpg\" alt=\"\" />\r\n");
+      out.write("                                                        <img  src=");
+      out.print(order.getImageUrl());
+      out.write(" alt=\"\" />\r\n");
       out.write("                                                    </div>\r\n");
       out.write("                                                    <div class=\"col-lg-9 col-md-9 col-sm-9 col-xs-9\">\r\n");
       out.write("                                                        <div class=\"row\">\r\n");
@@ -372,29 +380,39 @@ public final class cart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                                <div class=\"col-lg-8 col-md-8 col-sm-8 col-xs-8 product-desc\">\r\n");
       out.write("                                                                    <div class=\"product-name\">\r\n");
       out.write("                                                                        <h3>\r\n");
-      out.write("                                                                        <a href=\"#\"><span class=\"text-center\">\r\n");
-      out.write("                                                                        Special PU Leather Flip Case For Original Xiaomi Mi4i Mi 4i Qualcomm Snapdragon 615 Octa Core Phone Free Shipping High Quality(China (Mainland))\r\n");
-      out.write("                                                                        5 Colors Available</span></a>\r\n");
+      out.write("                                                                        <a href=\"#\"><span class=\"text-center\">");
+      out.print(order.getProductName());
+      out.write("</a>\r\n");
       out.write("                                                                        </h3>\r\n");
       out.write("                                                                    </div>\r\n");
       out.write("                                                                    <div class=\"shop-name\">\r\n");
-      out.write("                                                                        <a href=\"#\"><span>Shop Name</span></a>\r\n");
+      out.write("                                                                        <a href=\"#\"><span>");
+      out.print(order.getStoreName());
+      out.write("</span></a>\r\n");
       out.write("                                                                    </div>\r\n");
       out.write("                                                                    <div class=\"rating-box\">\r\n");
-      out.write("                                                                        <div class=\"rating medal readonly-rating\" data-score=\"3\" alt=\"shop-rating\"></div>\r\n");
+      out.write("                                                                        <div class=\"rating medal readonly-rating\" data-score=");
+      out.print(order.getStoreRatings());
+      out.write(" alt=\"shop-rating\"></div>\r\n");
       out.write("                                                                    </div>\r\n");
       out.write("                                                                </div>\r\n");
       out.write("                                                                <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 infoprice\">\r\n");
-      out.write("                                                                    <span class=\"value\">US $9.99</span>\r\n");
+      out.write("                                                                    <span class=\"value\">Purchased With BDT ");
+      out.print(order.getPrice());
+      out.write("</span>\r\n");
       out.write("                                                                    <span class=\"separator\">/</span>\r\n");
       out.write("                                                                    <span class=\"unit\">piece</span>\r\n");
       out.write("                                                                    <div class=\"rating-box\">\r\n");
-      out.write("                                                                        <div class=\"rating readonly-rating\" data-score=\"3\"></div>\r\n");
-      out.write("                                                                        <span>3 Review(s)</span>\r\n");
+      out.write("                                                                        <div class=\"rating readonly-rating\" data-score=");
+      out.print(order.getProductRatings());
+      out.write("></div>\r\n");
+      out.write("                                                                        <span>");
+      out.print(order.getProductReview());
+      out.write(" Review(s)</span>\r\n");
       out.write("                                                                    </div>\r\n");
       out.write("                                                                    <div class=\"rate-history\">\r\n");
       out.write("                                                                        <span class=\"order-num\">\r\n");
-      out.write("                                                                        <a href=\"\" class=\"order-num-a\">Orders  (3)</a>\r\n");
+      out.write("                                                                        <a href=\"\" class=\"order-num-a\">Orders ()</a>\r\n");
       out.write("                                                                        </span>\r\n");
       out.write("                                                                    </div>\r\n");
       out.write("                                                                </div>\r\n");
@@ -407,20 +425,12 @@ public final class cart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                </div>\r\n");
       out.write("                                            </div>\r\n");
       out.write("                                        </div>\r\n");
-      out.write("                                        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pagination-style\">\r\n");
-      out.write("                                            <nav>\r\n");
-      out.write("                                                <ul class=\"pagination\">\r\n");
-      out.write("                                                    <li class=\"disabled\"><a href=\"#\" aria-label=\"Previous\"><span aria-hidden=\"true\">&laquo;</span></a></li>\r\n");
-      out.write("                                                    <li class=\"active\"><a href=\"#\">1 <span class=\"sr-only\">(current)</span></a></li>\r\n");
-      out.write("                                                    <li><a href=\"#\">2 <span class=\"sr-only\">(current)</span></a></li>\r\n");
-      out.write("                                                    <li><a href=\"#\">3 <span class=\"sr-only\">(current)</span></a></li>\r\n");
-      out.write("                                                    <li><a href=\"#\">4 <span class=\"sr-only\">(current)</span></a></li>\r\n");
-      out.write("                                                    <li><a href=\"#\">5 <span class=\"sr-only\">(current)</span></a></li>\r\n");
-      out.write("                                                    <li><a href=\"#\">6 <span class=\"sr-only\">(current)</span></a></li>\r\n");
-      out.write("                                                    <li class=\"active\"><a href=\"#\" aria-label=\"Next\"><span aria-hidden=\"true\">&raquo;</span></a></li>\r\n");
-      out.write("                                                </ul>\r\n");
-      out.write("                                            </nav>\r\n");
-      out.write("                                        </div>\r\n");
+      out.write("                                        ");
+
+                                        }
+                                        }
+                                        
+      out.write("\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
@@ -435,7 +445,7 @@ public final class cart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"total-price\">\r\n");
       out.write("                                    <span class=\"total-price-text\">Total Price:</span>\r\n");
-      out.write("                                    <span class=\"total\">BDT 500.0</span>\r\n");
+      out.write("                                    <span class=\"total\">BDT </span>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
