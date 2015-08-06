@@ -15,4 +15,7 @@ public class URLService {
         }
     }
 
+    public void saveURLWithoutQueryString (HttpServletRequest request) {
+        request.getSession().setAttribute("lastVisitedPage", request.getRequestURL());
+    }
 }

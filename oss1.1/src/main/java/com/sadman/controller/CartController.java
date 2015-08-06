@@ -2,8 +2,10 @@ package com.sadman.controller;
 
 import com.sadman.dto.CartDto;
 import com.sadman.dto.CustomerDetailsDto;
+import com.sadman.dto.OrderDto;
 import com.sadman.dto.ProductDto;
 import com.sadman.service.CartService;
+import com.sadman.service.OrderService;
 import com.sadman.service.ProductService;
 import com.sadman.service.URLService;
 
@@ -24,10 +26,11 @@ public class CartController extends HttpServlet {
     private int productId;
     private List<CartDto> cartList;
     private List<ProductDto> cartProductList;
+    private List<OrderDto> orderPlacedProductList;
+    private List<OrderDto> orderPurchasedProductList;
 
     public void doPost (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            System.out.println("in post");
             URLService urlService = new URLService();
             urlService.saveURL(request);
 
@@ -96,6 +99,11 @@ public class CartController extends HttpServlet {
 
                 cartList = cartService.getCartProductByCustomerId(customer.getCustomerId());
                 cartProductList = productService.getCartProductDetails(cartList);
+
+                OrderService orderService = new OrderService();
+                orderPlacedProductList = orderService.getOrderPlacedProductByCustomerId(customer.getCustomerId());
+
+                orderPurchasedProductList = orderService.getOrderPurchasedProductByCustomerId(customer.getCustomerId());
             }else {
                 if(request.getSession().getAttribute("sessionCartProductList") != null) {
                     cartProductList = (List<ProductDto>) request.getSession().getAttribute("sessionCartProductList");
@@ -105,6 +113,8 @@ public class CartController extends HttpServlet {
             }
 
             request.setAttribute("cartProductList", cartProductList);
+            request.setAttribute("orderPlacedProductList", orderPlacedProductList);
+            request.setAttribute("orderPurchasedProductList", orderPurchasedProductList);
             RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
             dispatcher.forward(request, response);
         }catch (Exception e){
